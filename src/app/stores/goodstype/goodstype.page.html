@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar color="pink">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="store" (click)='back()'>
+          <div class="storeName"><img src="../../assets/首页/back.png" alt=""
+              [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}" >
+            {{ss?.StockName ? ss?.StockName : '没有名字'}}</div>
+        </ion-col>
+
+        <ion-col>
+          <div class="msg" text-right (click)='certificate()'>认证</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-card class="scard">
+    <img class="full-image" style="height: 130px; width:100%"
+      src="https://img4.imgtn.bdimg.com/it/u=1443265452,53498278&fm=26&gp=0.jpg" />
+    <p class="logo">
+      头像
+    </p>
+    <p text-center class="sm">{{ss?.StockName ? ss?.StockName : '没有名字'}}</p>
+    <div class="text-center introduce">
+      {{ss?.StockIntroduce ? ss?.StockIntroduce:"没有简介"}}
+    </div>
+
+  </ion-card>
+
+  <span (click)='cate()'>查看商品更多分类</span>
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="mat-18">home</mat-icon><span [ngStyle]="{ margin: '0 10px' }">首页</span>
+      </ng-template>
+
+      <ion-card class="price" *ngFor="let k of goodsList;let i=index">
+
+        <img src="https://img3.imgtn.bdimg.com/it/u=2892998309,882215164&fm=26&gp=0.jpg" alt="" (click)='toDetail(i)' />
+
+        <div [ngStyle]="{height:'70px'}" (click)='toDetail(i)'>
+          <ion-card-title [ngStyle]="{ fontSize: '15px',margin:'3px 0' }"> {{k?.productTitle ? k?.productTitle:'暂无标题'}}</ion-card-title>
+          <ion-card-subtitle>{{k?.ProductDescription ? k?.ProductDescription:'暂无描述'}}</ion-card-subtitle>
+
+        </div>
+        <ion-row no-padding justify-content-center>
+          <ion-col text-left color="pink" size="small">
+            ￥{{k?.ProductPrice ? k?.ProductPrice:0}}
+          </ion-col>
+          <ion-col text-right>
+            <ion-icon name="eye" size="6"></ion-icon>1321 {{goodsView}}
+          </ion-col>
+        </ion-row>
+      </ion-card>
+
+    </mat-tab>
+    <!-- <mat-tab label="Two">
+      <ng-template mat-tab-label>
+        <mat-icon class="mat-18">subject</mat-icon>
+        <span [ngStyle]="{ margin: '0 10px' }">分类</span>
+      </ng-template>
+      <div id="type">
+        <mat-accordion *ngFor="let k of typeList;let i=index">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{k?.Name}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ion-card class="rice">
+
+              <img src="https://img3.imgtn.bdimg.com/it/u=2892998309,882215164&fm=26&gp=0.jpg" alt="" />
+
+              <ion-card-title [ngStyle]="{ fontSize: '15px',margin:'3px 0' }">主标题</ion-card-title>
+              <ion-card-subtitle>副标题</ion-card-subtitle>
+
+              <ion-row no-padding justify-content-center>
+                <ion-col text-left color="pink" size="small">
+                  ￥180.00
+                </ion-col>
+                <ion-col text-right>
+                  <ion-icon name="eye" size="6"></ion-icon>1321
+                </ion-col>
+              </ion-row>
+            </ion-card>
+
+          </mat-expansion-panel>
+        </mat-accordion>
+
+      </div>
+    </mat-tab> -->
+  </mat-tab-group>
+</ion-content>

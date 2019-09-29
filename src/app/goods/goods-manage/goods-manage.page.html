@@ -1,0 +1,348 @@
+<ion-header>
+  <ion-grid class="tool">
+    <ion-row>
+      <ion-col (click)='back()' class="lv">
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom'}">
+      </ion-col>
+      <ion-col size='8'>
+        <div>
+          <ion-segment [(ngModel)]="change" color="dark">
+            <ion-segment-button value="friends">
+              <ion-label>全部商品</ion-label>
+              <div class="bolder-sm"></div>
+            </ion-segment-button>
+            <ion-segment-button value="enemies">
+              <ion-label>商品分类</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </div>
+      </ion-col>
+      <ion-col text-right (click)='search()' class="lv">
+        <img src="../../assets/商品管理/搜索(2).png" alt="" [ngStyle]="{width:'20px'}">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content>
+  <div [ngSwitch]="change">
+    <div *ngSwitchCase="'friends'">
+      <mat-tab-group mat-align-tabs="center">
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <span class="sale-type"> 出售中</span>({{(sale-saleNone) ? (sale-saleNone):0 }})
+          </ng-template>
+          <div class="goods" *ngFor="let k of allList;let i=index">
+            <ion-card class="goods-card" *ngIf="k?.IsShow==true&&k?.IsRecycled==false&&k?.StockNumber!='0'">
+              <ion-row>
+                <ion-col (click)='goDetail(k.RecordId)'>
+                  <div class="goodspic">
+                    <img [src]="k.PicList[0] ? k.PicList[0].PicPath : 'assets/img/sakura.jpg'" alt=""
+                      [ngStyle]="{maxHeight:'100%',width:'auto',maxWidth:'100%'}">
+                  </div>
+                </ion-col>
+                <ion-col size='7.4'>
+                  <ion-row>
+                    <ion-col (click)='goDetail(k.RecordId)'>
+                      {{k?.productTitle}}
+                    </ion-col>
+                  </ion-row>
+                  <ion-row (click)='goDetail(k.RecordId)'>
+                    <ion-col>
+                      售价:￥{{k?.ProductPrice ? k?.ProductPrice:0}}
+                    </ion-col>
+                    <ion-col>
+                      销量:{{k?.SalesVolum ? k?.SalesVolum:0}}
+                    </ion-col>
+                  </ion-row>
+                  <ion-row (click)='goDetail(k.RecordId)'>
+                    <ion-col>
+                      储存:{{k?.StockNumber ? k?.StockNumber:0}}
+                    </ion-col>
+                    <ion-col>
+                      评价:0{{evaluate}}
+                    </ion-col>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+              <div class="operate">
+
+
+                <button mat-icon-button [matMenuTriggerFor]="menu" text-center>
+                  <img src="../../assets/商品管理/操作.png" alt="" [ngStyle]="{width:'20px',margin:'0 auto'}">
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item (click)="edit(k.RecordId)">
+                    <span>编辑</span>
+                  </button>
+
+                  <button mat-menu-item (click)='down(k.RecordId)'>
+                    <span>下架</span>
+                  </button>
+
+                  <button mat-menu-item (click)='delete(k.RecordId)'>
+                    <span>删除</span>
+                  </button>
+
+                  <button mat-menu-item (click)='detail(k.RecordId)'>
+                    <span>查看评价</span>
+                  </button>
+                </mat-menu>
+
+              </div>
+            </ion-card>
+
+          </div>
+        </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <span class="sale-type">售罄</span>({{saleNone ? saleNone:0}})
+          </ng-template>
+          <div class="goods" *ngFor="let k of allList;let i=index">
+            <ion-card class="goods-card" *ngIf="k?.IsShow==true&&k?.IsRecycled==false&&k?.StockNumber==0">
+              <ion-row>
+                <ion-col (click)='goDetail(k.RecordId)'>
+                  <div class="goodspic">
+                    <img [src]="k.PicList[0] ? k.PicList[0].PicPath : 'assets/img/sakura.jpg'" alt="">
+
+                  </div>
+                </ion-col>
+                <ion-col size='7.4'>
+                  <ion-row>
+                    <ion-col (click)='goDetail(k.RecordId)'>
+                      {{k?.productTitle}}
+                    </ion-col>
+                  </ion-row>
+                  <ion-row (click)='goDetail(k.RecordId)'>
+                    <ion-col>
+                      售价:￥{{k?.ProductPrice ?k?.ProductPrice:0}}
+                    </ion-col>
+                    <ion-col>
+                      销量:{{k?.SalesVolum ? k?.SalesVolum:0}}
+                    </ion-col>
+                  </ion-row>
+                  <ion-row (click)='goDetail(k.RecordId)'>
+                    <ion-col>
+                      储存:{{k?.StockNumber ? k?.StockNumber:0}}
+                    </ion-col>
+                    <ion-col>
+                      评价:65496 {{evaluate}}
+                    </ion-col>
+                  </ion-row>
+                  <div class="operate" text-right [ngStyle]="{left: '80%'}">
+                    <button mat-icon-button [matMenuTriggerFor]="menu" text-center>
+                      <img src="../../assets/商品管理/操作.png" alt="" [ngStyle]="{width:'20px',margin:'0 auto'}">
+                    </button>
+                    <mat-menu #menu="matMenu">
+                      <button mat-menu-item (click)="edit(k.RecordId)">
+                        <span>编辑</span>
+                      </button>
+
+                      <button mat-menu-item (click)='down(k.RecordId)'>
+                        <span>下架</span>
+                      </button>
+
+                      <button mat-menu-item (click)='delete(k.RecordId)'>
+                        <span>删除</span>
+                      </button>
+
+                      <button mat-menu-item (click)='detail(k.RecordId)'>
+                        <span>查看评价</span>
+                      </button>
+                    </mat-menu>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-card>
+
+          </div>
+
+        </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <span class="sale-type">仓库中</span>({{downSale ? downSale:0}})
+          </ng-template>
+          <div class="goods" *ngFor="let k of allList;let i=index">
+            <ion-card class="goods-card" *ngIf="k?.IsShow==false&&k?.IsRecycled==false">
+              <ion-row>
+                <ion-col (click)='goDetail(k.RecordId)'>
+                  <div class="goodspic">
+                    <img [src]="k.PicList[0] ? k.PicList[0].PicPath : 'assets/img/sakura.jpg'" alt="">
+
+                  </div>
+                </ion-col>
+                <ion-col size='7.4'>
+                  <ion-row>
+                    <ion-col (click)='goDetail(k.RecordId)'>
+                      {{k?.productTitle}}
+                    </ion-col>
+                  </ion-row>
+                  <ion-row (click)='goDetail(k.RecordId)'>
+                    <ion-col>
+                      售价:￥{{k?.ProductPrice ? k?.ProductPrice:0}}
+                    </ion-col>
+                    <ion-col>
+                      销量:{{k?.SalesVolum ? k?.SalesVolum:0}}
+                    </ion-col>
+                  </ion-row>
+                  <ion-row (click)='goDetail(k.RecordId)'>
+                    <ion-col>
+                      储存:{{k?.StockNumber}}
+                    </ion-col>
+                    <ion-col>
+                      评价:65496 {{evaluate}}
+                    </ion-col>
+                  </ion-row>
+                  <div class="operate" text-right [ngStyle]="{left: '80%'}">
+
+                    <button mat-icon-button [matMenuTriggerFor]="menu" text-center>
+                      <img src="../../assets/商品管理/操作.png" alt="" [ngStyle]="{width:'20px',margin:'0 auto'}">
+                    </button>
+                    <mat-menu #menu="matMenu">
+                      <button mat-menu-item (click)="edit(k.RecordId)">
+                        <span>编辑</span>
+                      </button>
+
+                      <button mat-menu-item (click)='up(k.RecordId)'>
+                        <span>上架</span>
+                      </button>
+
+                      <button mat-menu-item (click)='delete(k.RecordId)'>
+                        <span>删除</span>
+                      </button>
+
+                      <button mat-menu-item (click)='detail(k.RecordId)'>
+                        <span>查看评价</span>
+                      </button>
+                    </mat-menu>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-card>
+
+          </div>
+        </mat-tab>
+
+        <!-- <mat-tab>
+          <ng-template mat-tab-label>
+            <span class="sale-type">全部商品</span> ({{allList?.length}})
+          </ng-template>
+          <div class="goods">
+            <div *ngFor="let k of allList;let i=index">
+              <ion-card class="goods-card">
+                <ion-row>
+                  <ion-col (click)='goDetail(k.RecordId)'>
+                    <div class="goodspic">
+                      <img [src]='k?.PicList[0].PicPath ?   k?.PicList[0].PicPath : imgSrc' alt="">
+
+                    </div>
+                  </ion-col>
+                  <ion-col size='7.4'>
+                    <ion-row>
+                      <ion-col (click)='goDetail(k.RecordId)'>
+                        {{k?.productTitle}}
+                      </ion-col>
+                    </ion-row>
+                    <ion-row (click)='goDetail(k.RecordId)'>
+                      <ion-col>
+                        售价:￥{{k?.ProductPrice ? k?.ProductPrice:0}}
+                      </ion-col>
+                      <ion-col>
+                        销量:{{k?.SalesVolum ? k?.SalesVolum:0}}
+                      </ion-col>
+                    </ion-row>
+                    <ion-row (click)='goDetail(k.RecordId)'>
+                      <ion-col>
+                        储存:{{k?.StockNumber ? k?.StockNumber:0}}
+                      </ion-col>
+                      <ion-col>
+                        评价: {{k?.RankValue ? k?.RankValue:0 }}
+                      </ion-col>
+                    </ion-row>
+                    <div class="operate" text-right [ngStyle]="{left: '80%'}">
+
+                      <button mat-icon-button [matMenuTriggerFor]="menu" text-center>
+                        <img src="../../assets/商品管理/操作.png" alt="" [ngStyle]="{width:'20px',margin:'0 auto'}">
+                      </button>
+                      <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)='up(k.RecordId)' *ngIf="k?.IsShow==false">
+
+                          <span>上架</span>
+                        </button>
+                        <button mat-menu-item (click)='down(k.RecordId)' *ngIf="k?.IsShow==true">
+
+                          <span>下架</span>
+                        </button>
+                        <button mat-menu-item (click)='delete(k.RecordId)' *ngIf="k?.IsRecycled==false">
+
+                          <span>删除</span>
+                        </button>
+                        <button mat-menu-item (click)='detail(k.RecordId)'
+                          *ngIf="k?.IsRecycled==false||k?.IsShow==true||k?.IsShow==false">
+
+                          <span>查看评价</span>
+                        </button>
+                      </mat-menu>
+
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </ion-card>
+            </div>
+
+          </div>
+        </mat-tab> -->
+
+      </mat-tab-group>
+    </div>
+
+    <div *ngSwitchCase="'enemies'">
+
+      <div class="body-categories">
+        <div class="body-left" *ngIf="CategoriesFirstList">
+
+          <!-- <div class="cate-left" *ngFor="let item of CategoriesFirstList;let i=index">  -->
+          <div [ngClass]="{'cateLeftActive': (leftid==item.RecordId)}" class="cate-left"
+            *ngFor="let item of CategoriesFirstList;let i=index" (click)="gotoGet1(item)">
+            <div [ngClass]="{'perStyleActive1': (leftid==item.RecordId)}" style="font-size: 22px;font-weight: 600;">
+              {{ i+1}}</div>
+
+            <div [ngClass]="{'perStyleActive': (leftid==item.RecordId)}">{{item.Name}}</div>
+            <!-- <div [ngClass]="{'perStyleActive': (leftid==item.RecordId)}">hhaa</div> -->
+          </div>
+          <!-- <div  *ngIf=(isGoods1) class="per-category-active"(click)="gotoGet1()">哈哈1</div> -->
+          <!-- <div class="" (click)="gotoGet2()">哈哈2</div> -->
+
+        </div>
+        <div class="body-right">
+          <div class="title-right">
+            类别
+          </div>
+          <div class="secondCate" *ngFor="let item of CategoriesSecondList;let i=index" (click)='goList(item)'>
+            <!-- (click)='pro(item.RecordId)' -->
+            <div class="right-top">
+              <!-- <img src="assets/img/makeup3.png" alt=""> -->
+              <!-- {{item.Image}} -->
+              <img [src]="item.Image || LackImage" alt="">
+            </div>
+            <div class="right-bottom">
+              {{item.Name}}
+            </div>
+          </div>
+          <!-- <div  *ngIf=(isGoods2)>我是哈哈2</div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <div text-center>
+      <button mat-flat-button color="accent" (click)='addgoods()' [ngStyle]="{margin:'0 10px'}">添加商品</button>
+      <!-- <button mat-flat-button color="accent" (click)='addType()'>添加分类</button> -->
+    </div>
+  </ion-toolbar>
+</ion-footer>

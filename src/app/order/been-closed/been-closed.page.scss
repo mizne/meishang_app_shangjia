@@ -1,0 +1,70 @@
+.header{
+    background: rgba(243,54,124,1);
+    color: white;
+    font-size: 16px;
+}
+.order{
+    height: 190px;
+    background: rgba(243,54,124,1);
+    padding: 25px 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.order-head{
+    margin: 0 auto;
+    
+    background: url(../../../assets/订单管理/bg.png) no-repeat;
+    background-size: 100% 100%;
+    width: 300px;
+    height: 140px;
+    padding-top: 40px;
+}
+.row1 img{
+    
+width: 16px;
+margin: 0px 8px;
+}
+.row1{
+    padding: 10px 0;
+    font-weight: bold;
+    font-size: 12px;
+
+}
+.row2{
+    color: rgba(102,102,102,1);
+    padding: 10px 0;
+    font-size: 12px;
+    padding-left: 30px;
+}
+.edit{
+    color: rgba(243,54,124,1);
+}
+.pic{
+    width:12px;
+    margin:0 5px 0 14px;
+}
+.count{
+    padding:0 10px;
+    font-size: 12px;
+    font-weight: bold;
+
+}
+
+
+.goods-count{
+    margin-top: 50px;
+}
+.send-goods{
+    font-size: 12px;
+}
+.goods-bg{
+    background: rgba(241,241,241,1);
+}
+.money{
+    padding: 12px;
+}
+.money span{
+    color: rgba(243,54,124,1);
+}
+.contact{
+    color: rgba(153,153,153,1);
+}

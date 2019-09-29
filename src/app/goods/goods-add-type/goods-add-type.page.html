@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-grid >
+    <ion-row>
+      <ion-col>
+        <img src="../../assets/首页/back.png" alt=""  [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}" (click)='back()'> 添加分类
+      </ion-col>
+    
+      <ion-col text-right (click)='save()'>
+       保存
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content>
+  <label class="item item-input" [ngStyle]="{height:'60px',fontSize:'16px'}">
+    <input type="text" placeholder=" 输入分类名称" [(ngModel)]="typeName" minlength='1' required>
+  </label>
+  <label class="item">
+    <ion-row class="goodsType">
+    <ion-col>
+      分类下商品
+    </ion-col>
+    <ion-col text-right>
+     
+      0 <img src="../../../assets/商品管理/返回.png" alt="" [ngStyle]="{marginLeft:'10px'}">
+    </ion-col>
+  </ion-row>
+  </label>
+  
+</ion-content>

@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar color="pink">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="store" (click)='back()'>
+          <div class="storeName"><img src="../../assets/首页/back.png" alt=""
+              [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}">
+            {{ ss?.StockName ? ss?.StockName :""}}</div>
+        </ion-col>
+
+        <ion-col>
+          <div class="" text-right (click)='viewStore()'>查看店铺</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <mat-list>
+    <mat-list-item>
+      <ion-grid>
+        <ion-row (click)='storeName()'>
+          <ion-col class="store">
+            店铺名称
+          </ion-col>
+          <ion-col>
+            <div class="msg" text-right>{{ ss?.StockName ? ss?.StockName :"请输入店铺名称 "}} <img
+                src="../../../assets/商品管理/返回.png" alt=""></div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <ion-grid>
+        <ion-row (click)='storeIntroduce()'>
+          <ion-col class="store">
+            店铺简介
+          </ion-col>
+          <ion-col style="position: relative;">
+            <div class="msg" text-right style="padding-right: 0.7rem;"> {{ss?.StockIntroduce ? ss?.StockIntroduce:"请输入店铺简介"}}</div>
+            <img src="../../../assets/商品管理/返回.png" alt="" class="introduce_style">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <ion-grid>
+        <ion-row (click)='storeInfo()'>
+          <ion-col class="store">
+            账户信息
+          </ion-col>
+          <ion-col>
+            <div class="msg" text-right>设置 <img src="../../../assets/商品管理/返回.png" alt=""></div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="store">
+            认证信息
+          </ion-col>
+          <ion-col (click)='storeCertification()'>
+            <div class="msg" text-right>认证 <img src="../../../assets/商品管理/返回.png" alt=""></div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <div class="logo">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="sto">
+            店铺logo
+          </ion-col>
+          <ion-col text-right>
+            <div class="storeLogo" (click)='presentActionSheet()' *ngIf="ss?.Logo;else logo">
+              <img [src]='ss?.Logo ? ss?.Logo : logoSrc' alt="" class="lg">
+            </div>
+            <ng-template #logo>
+              <div class="addlg" (click)='presentActionSheet()'>添加logo</div>
+            </ng-template>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </mat-list>
+  <div class="btm_btn" text-center>
+    <button text-center mat-raised-button (click)="rePassword()" color="accent">修改密码</button>
+    <!-- <button text-center mat-raised-button (click)="quit()" color="accent">退出登录</button> -->
+  </div>
+</ion-content>

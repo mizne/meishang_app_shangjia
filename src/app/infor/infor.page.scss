@@ -1,0 +1,50 @@
+.sys{
+    font-size: 16px;
+    // font-weight: bold;
+    color: black;
+    margin: 3px 0;
+}
+.header{
+    background: rgba(243,54,124,1);
+    color: white;
+    font-size: 16px;
+}
+.ion-card{
+    margin: 0 !important;
+}
+.kong{
+    padding: 50px 0;
+    font-size: 16px;
+}
+.nav_style {
+    text-align: center;
+    position: relative;
+    .title_style {
+        width: 50%;
+        display: inline-block;
+        color: black;
+    }
+    .title_style_active {
+        @extend .title_style;
+        color: #F4367C;
+    }
+    .line {
+        width: 3.5rem;
+        height: 0.1rem;
+        display: inline-block;
+        background: #F4367C;
+        position: absolute;
+        top: 1.5rem;
+    }
+}
+.sys_info_content {
+    
+}
+.store_info_content {
+    .store_msg_card {
+        margin-top: 1rem;
+        padding: 0.6rem;
+        border-radius: 0.2rem;
+        background: #f3f3f3;
+    }
+}

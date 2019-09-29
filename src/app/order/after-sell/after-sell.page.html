@@ -1,0 +1,143 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col size='4.8'>
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}"
+          (click)='back()'>
+      </ion-col>
+      <ion-col size='7.2'>
+        订单详情
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+<ion-content>
+  <div class="order">
+    <div class="order-head" text-center>
+      <div [ngStyle]="{fontSize: '16px',margin:'5px 0'}">售后 退款</div>
+      <p [ngStyle]="{color: 'rgba(102,102,102,1)',fontSize:'12px'}"> 订单时间：2019-03-13 10:41:32</p>
+      <ion-row [ngStyle]="{color: 'rgba(102,102,102,1)',fontSize:'12px',marginTop:'-10px'}">
+        <ion-col size='9' text-left>
+          <img src="../../../assets/订单管理/快递.png" alt="" [ngStyle]="{width:'13.4px',margin:'0 6px'}">
+          <span>订单编号：216546519684</span>
+        </ion-col>
+        <ion-col size='3'>复制</ion-col>
+      </ion-row>
+    </div>
+  </div>
+  <div class="card">
+    <ion-row class="row1">
+      <ion-col>
+        <img src="../../../assets/订单管理/收货人信息.png" alt="">收货人信息
+      </ion-col>
+      <ion-col text-right class="edit">
+        编辑
+      </ion-col>
+    </ion-row>
+    <mat-divider></mat-divider>
+    <ion-row class="row2">
+      <ion-col>
+        收货人：张大大
+      </ion-col>
+      <ion-col text-right>
+        16545216549
+      </ion-col>
+    </ion-row>
+    <ion-row class="row2">
+      <ion-col>
+        收货地址：北京 北京市 朝阳区 朝外街道 悠唐国际B
+        座1901室
+      </ion-col>
+    </ion-row>
+    <label class="item item-input" [ngStyle]="{paddingLeft:'35px'}">
+      <span [ngStyle]="{fontSize:'12px',color:'rgba(102,102,102,1);'}">留言</span>
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      <input type="text" placeholder="">
+    </label>
+  </div>
+
+  <div class="card">
+    <ion-row class="row1">
+      <ion-col>
+        <img src="../../../assets/订单管理/快递.png" alt="">物流信息
+      </ion-col>
+      <ion-col text-right class="contact">
+        待关联 >
+      </ion-col>
+    </ion-row>
+    <mat-divider></mat-divider>
+   
+    
+  </div>
+
+  
+
+  <ion-row class="goods-count">
+    <ion-col class="count">
+      <img src="../../../assets/订单管理/商品.png" alt="" class="pic"> 共<span>2</span>件商品
+      <mat-divider></mat-divider>
+    </ion-col>
+  </ion-row>
+
+
+  <div class="card send-goods">
+    <ion-row class="goods-bg">
+      <ion-col size='3'>
+        <img src="https://img4.imgtn.bdimg.com/it/u=3129151839,3166971011&fm=26&gp=0.jpg" alt="">
+      </ion-col>
+      <ion-col size='7'>
+        <div [ngStyle]="{fontSize: '14px'}">
+          纪梵希口红小羊皮半哑光唇膏 女
+          306番茄红 官方正品
+        </div>
+        <p [ngStyle]="{fontSize: '12px',color:'rgba(153,153,153,1)'}">颜色：306</p>
+      </ion-col>
+      <ion-col size='2' text-right>
+        <div>
+          ￥355
+        </div>
+        <div [ngStyle]="{fontSize: '12px',color:'rgba(153,153,153,1)'}">
+          ×1
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        总价
+      </ion-col>
+      <ion-col text-right>
+        $365
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        优惠
+      </ion-col>
+      <ion-col text-right>
+        $365
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        运费
+      </ion-col>
+      <ion-col text-right>
+        $365
+      </ion-col>
+    </ion-row>
+    <mat-divider></mat-divider>
+    <ion-row class="money">
+      <ion-col text-right>
+        实付金额：<span>￥65646</span>
+      </ion-col>
+    </ion-row>
+    <mat-divider></mat-divider>
+    <ion-row>
+      <ion-col text-right>
+        <button mat-stroked-button color="accent" (click)='toSell()'>售后详情</button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

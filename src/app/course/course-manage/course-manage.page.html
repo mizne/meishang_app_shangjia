@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col (click)='back()'>
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}">
+        课程管理
+      </ion-col>
+      <ion-col text-right (click)='release()'>
+        <span>发布</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+<ion-content>
+  <div>
+    <span class="btn" [ngStyle]="{color:'white'}" (click)='alive()'>
+      &nbsp; <img src="../../../assets/课程管理/live.png" alt="">&nbsp;预约直播
+    </span>
+
+    <div class="content" *ngIf="lose==0;else elseBlock">
+      <!-- <ul >
+         <li *ngFor="let k of courseArr;let i=index"  style="margin: -15px 0  -35px 0">
+          <ion-card *ngIf="isShow" class="courseCard">
+            <div>
+              <div text-center class="imgBg">
+              <img class="full-image" style="height:120px; width:auto;max-width: 100%;margin:0 auto;" [src]="k?.CourseFirstImage ? k?.CourseFirstImage:srcImg" (click)="codetail(k.RecordId)">
+
+              </div>
+              <p style="height:40px">
+               {{k.CourseTitle}}
+              </p>
+              <p [ngStyle]="{fontSize:'12px',color:'rgba(153,153,153,1)'}">
+                <ion-row>
+                  <ion-col size='8'>
+                    <ion-icon name="eye"></ion-icon>{{k?.SalesVolum ? k?.SalesVolum:0}}&nbsp; 
+                    <ion-icon name="star"></ion-icon>{{k?.SalesVolum ? k?.SalesVolum:0}}
+                  </ion-col>
+                  <ion-col text-right size='4' [ngStyle]="{marginTop: '-11px'}">
+                    <button mat-icon-button [matMenuTriggerFor]="menu" >
+                      <mat-icon>more_horiz</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)='delete(k.RecordId)'>
+                        下架
+                        </button>
+                        <button mat-menu-item (click)='delete(k.RecordId)'>
+                        删除
+                        </button>
+                      </mat-menu>
+                  </ion-col>
+                </ion-row> 
+              </p>
+            </div>
+          </ion-card>
+        </li>
+      </ul> -->
+
+      <div class="masonry">
+        <div class="item" *ngFor="let k of courseArr;let i=index">
+          <div class="item_content content-lar">
+            <ion-card class="price">
+              <div class="goodsPic">
+                <img [src]="k?.CourseFirstImage ? k?.CourseFirstImage:srcImg" (click)="codetail(k.RecordId)"
+                  class="storeimg" />
+              </div>
+              <div (click)="codetail(k.RecordId)">
+                <div class="courseTitle">
+                  {{k.CourseTitle}}
+                </div>
+                <span *ngIf="k.IsCourseApprove === '0' || k.IsCourseApprove === '2'" class="courseState">
+                  {{ changeState(k.IsCourseApprove) }}
+                </span>
+              </div>
+              <ion-row>
+                <ion-col size='8'>
+                  <ion-icon name="eye"></ion-icon>{{k?.SalesVolum ? k?.SalesVolum:0}}&nbsp;
+                  <ion-icon name="star"></ion-icon>{{k?.SalesVolum ? k?.SalesVolum:0}}
+                </ion-col>
+                <ion-col text-right size='4' [ngStyle]="{marginTop: '-11px'}">
+                  <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon>more_horiz</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <!-- <button mat-menu-item (click)='delete(k.RecordId)'>
+                               下架
+                              </button> -->
+                    <button mat-menu-item (click)='delete(k.RecordId)'>
+                      删除
+                    </button>
+                  </mat-menu>
+                </ion-col>
+              </ion-row>
+
+            </ion-card>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #elseBlock><img src="../../../assets/课程管理/kong.jpg" alt="" style="width:100%" #else></ng-template>
+  </div>
+</ion-content>

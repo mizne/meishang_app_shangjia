@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="pink" (click)='back()' style="width: 8rem;">
+    <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}" >
+   消息列表
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <nav class="nav_style">
+    <a *ngFor="let item of titleList;let i = index" class="title_style" [ngClass]="{'title_style_active': clickActive===i}" (click)="changeContent(i)">
+      <span class="line" *ngIf="clickActive===i"></span>
+      {{ item.name }}
+    </a>
+  </nav>
+
+  <div class="sys_info_content" *ngIf="clickActive === 0">
+    
+  </div>
+
+  <div class="store_info_content" *ngIf="clickActive === 1">
+    <div *ngFor="let item of storeMsgList;let i = index" (click)="goToStoreMsg(item.VisitorSender)" class="store_msg_card">
+      <div>
+        {{ item.NickName }}
+      </div>
+      <div>
+        {{ item.Content }}
+      </div>
+    </div>
+  </div>
+</ion-content>

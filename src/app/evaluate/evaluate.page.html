@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col  (click)='back()'>
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}"> 评价详情
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content>
+  <div class="evaContent">
+    <div class="evaCard" *ngFor="let item of cardInfoList;let i = index;">
+
+      <div class="evaCardLeft">
+        <img [src]="item.VisitorId.Logo || '../assets/img/sakura.jpg'" alt="">
+      </div>
+
+      <div class="evaCardRight">
+        <div class="evaRightTitle">
+          {{ item.VisitorId.NickName }}
+        </div>
+        <div class="evaRightInfo">
+          <span>{{ item.CreatedAt }}&nbsp;颜色分类：{{ classification(item.Specifications) }}</span>
+        </div>
+        <div class="evaRightDetail">
+          {{ item.Content }}
+        </div>
+        <div class="evaRightImg" *ngIf="item.productImage.length > 0">
+          <div class="imgBox">
+            <img *ngFor="let imgItem of item.imgList;let ii = index;" [src]="imgItem.path" alt="">
+          </div>
+        </div>
+        <div class="evaRightBottom">
+          <span>浏览{{ checkPVNumber(item.PVNumber) }}次</span>
+          <!-- <span class="appreciate" (click)="appreciate()"><img src="../assets/订单管理/点赞.png" alt="">&nbsp;点赞</span> -->
+          <span class="comment" (click)="comment(item.RecordId)"><img src="../assets/订单管理/评论.png" alt="">&nbsp;回复</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</ion-content>

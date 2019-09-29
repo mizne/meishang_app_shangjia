@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+        <!-- (click)='back()' -->
+      <ion-col size='4.8'>
+        <!-- <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}"> -->
+      </ion-col>
+      <ion-col size='7.2'>
+        商铺冻结
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content>
+  <div class="frozen_body">
+    <div class="frozen_top">
+      <img src="../../assets/img/wait.jpg" alt="">
+    </div>
+    <div class="content">
+      您的商铺已被冻结
+    </div>
+    <div class="content">
+      请联系管理员。
+    </div>
+    <div class="frozen_bottom">
+      <span class="frozen_btn" (click)="refreshStatus()">刷新</span>
+    </div>
+  </div>
+</ion-content>

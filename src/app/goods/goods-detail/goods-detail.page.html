@@ -1,0 +1,128 @@
+
+<ion-content >
+    <div class="head"  >
+      <img [src]='sult?.PicList[0].PicPath ? sult?.PicList[0].PicPath:imgSrc' alt="" class="headcover">
+
+        <span class="circle" (click)="back()">
+         <img
+         src="../../assets/首页/back.png"
+         alt=""
+         [ngStyle]="{ width: '12px', verticalAlign: 'bottom' ,marginRight:'8px'}"
+
+       />
+        </span>
+       </div>
+  <div [ngStyle]="{padding:'0 10px' }">
+    <div>
+      <p class="price">￥{{sult?.ProductPrice ? sult?.ProductPrice:0}}</p>
+      <div class="goodsName">
+        <span>美尚荟</span>{{sult?.productTitle}}
+      </div>
+      <ion-row>
+        <ion-col size='2' class="common">
+          发货
+        </ion-col>
+        <ion-col size='6' class="goodsName" >
+          <img src="../../assets/商品管理/定位.png" alt="">上海
+        </ion-col>
+        <ion-col size='4' class="common" text-right>
+          月销量{{sult?.SalesVolum ? sult?.SalesVolum:0}}笔
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size='2' class="common">
+          优惠
+        </ion-col>
+        <ion-col size='7' class="goodsName">
+          满18,享部分地区包邮
+        </ion-col>
+        <ion-col size='3' class="common" text-right>
+         <img src="../../assets/商品管理/arrow.png" alt="">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size='2' class="common">
+          发货
+        </ion-col>
+        <ion-col size='7' class="goodsName">
+          7天无理由
+        </ion-col>
+        <ion-col size='3' class="common" text-right>
+          <img src="../../assets/商品管理/arrow.png" alt="">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size='2' class="common">
+          发货
+        </ion-col>
+        <ion-col size='7' class="goodsName">
+          选择 颜色分类
+        </ion-col>
+        <ion-col size='3' class="common" text-right>
+          <img src="../../assets/商品管理/arrow.png" alt="">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size='2' class="common">
+          
+        </ion-col>
+        <ion-col size='7' class="goodsName">
+          共五种颜色分类可选
+        </ion-col>
+        <ion-col size='3' class="common">
+          
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size='2' class="common">
+          参数
+        </ion-col>
+        <ion-col size='7' class="goodsName">
+          品牌 美容工具分类...
+        </ion-col>
+        <ion-col size='3' class="common" text-right>
+          <img src="../../assets/商品管理/arrow.png" alt="">
+        </ion-col>
+      </ion-row>
+    </div>
+    <div>
+      <ion-row (click)='all()'>
+        <ion-col class="goodsName">
+          宝贝评价({{totalmsg?.result ? totalmsg?.result:0 }})
+        </ion-col>
+        <ion-col class="all" text-right>
+          <!-- 查看全部 <img src="../../assets/商品管理/arrow.png" alt=""> -->
+        </ion-col>
+      </ion-row>
+      <!-- <div>
+        <button mat-stroked-button color="accent">很不错</button>
+        <button mat-stroked-button color="accent">很不错</button>
+        <button mat-stroked-button color="accent">很不错</button>
+        <button mat-stroked-button color="accent">很不错</button>
+      </div> -->
+     
+    <div *ngFor="let k of messageGoods">
+      <div class="sell">
+        <img
+         [src]='k?.Logo'
+      
+        />
+        <span>{{k?.CreatedBy}}</span>
+      </div>
+      <div class="eva">
+        <ion-row  class="content">{{k?.Content}}</ion-row>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div text-center class="btn">
+      <button mat-flat-button [matMenuTriggerFor]="menu" color="accent" [ngStyle]="{borderRadius: '30px'}">编辑</button>
+      <mat-menu #menu="matMenu">
+        <!-- <button mat-menu-item (click)='editName()' >商品分类</button> -->
+        <button mat-menu-item (click)='delete()'>编辑商品</button>
+        <button mat-menu-item (click)='delete()'>删除商品</button>
+      </mat-menu>
+    <button mat-flat-button color="accent" [ngStyle]="{borderRadius: '30px'}" (click)="down()"  *ngIf="sult?.IsShow==true&&sult?.StockNumber!='0'">下架</button>
+    <button mat-flat-button color="accent" [ngStyle]="{borderRadius: '30px'}" (click)="up()"  *ngIf="sult?.IsShow==false&&sult?.StockNumber!='0'">上架</button>
+  </div>
+</ion-content>

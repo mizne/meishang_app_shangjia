@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col  (click)='back()'>
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}"
+         > 提现到账时间说明
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content>
+  <div class="introduce">
+    <div>单笔提现金额低于1000元：</div>
+  <p>当天18点前申请提现，将在第2工作日完成审核并打款：
+    18点后申请提现，将在第3个工作日完成审核并打款</p>
+  </div>
+  <div class="introduce">
+    <div>单笔提现金额高于1000元：</div>
+    <p>将在提现申请提交后，4个工作日完成审核并打款</p>
+  </div>
+</ion-content>

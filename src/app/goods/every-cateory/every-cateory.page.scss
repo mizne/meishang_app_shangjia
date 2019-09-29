@@ -1,0 +1,264 @@
+.body-search{
+  margin-top:30px;
+  width: 100%;
+  display: flex;
+  margin-left: 10px;
+  justify-content: center;
+  height: 30px;;
+  .btn-search{
+    width: 20%;
+    font-size: 16px;
+    color: #949492;
+    height: 18px;;
+  }
+}
+
+.header{
+  background: #F4367C;
+  color: white;
+  font-size: 16px;
+}
+.storeName{
+    font-size: 16px;
+    
+}
+.lt{
+    font-size: 20px;
+    
+}
+.pic{
+    position: relative;
+   
+}
+.sm{
+    margin-top: 55px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.introduce{
+    width: 60%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+.rice{
+    margin: 5px;
+    float: left;
+    width: 46%;
+}
+#type  .mat-expansion-panel .mat-expansion-panel-body {
+  padding: 0 11px 16px;
+  z-index: 1000;
+} 
+.scard{
+  border-radius: 0;
+  margin: 0 0 5px 0;
+}
+.goodsPic{
+  text-align: center;
+  background: rgb(228, 225, 225)
+}
+.goodsPic>img{
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+}
+.price{
+  margin: 3px;
+  border-radius: 5px;
+  z-index: 500;
+}
+
+
+.masonry {
+  -moz-column-count: 2;
+  /* Firefox */
+  -webkit-column-count: 2;
+  /* Safari 和 Chrome */
+  column-count: 2;
+  -moz-column-gap: 0.3em;
+  -webkit-column-gap: 0.3em;
+  column-gap: 0.3em;
+  width: 99%;
+  margin: 0.3em auto;
+}
+
+.item {
+  border: 0;
+padding: 0px;
+  margin-bottom: 1em;
+  width: 100%;
+  height: auto;
+  word-wrap:break-word;
+
+  -webkit-column-break-inside: avoid;
+  break-inside: avoid;
+    white-space: normal ; 
+  
+}
+
+
+.bofy-none{
+         margin-top: 20px;
+         padding: 15px;
+         width: 100%;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         flex-direction: column;
+
+         
+         .img-none{
+             display: flex;
+         justify-content: center;
+         align-items: center;
+           width: 100%;
+
+           img{
+             width: 150px;
+             height: 150px;;
+
+           }
+
+         }
+         .tips-none{
+             display: flex;
+         justify-content: center;
+         align-items: center;
+           width: 100%;
+           font-size: 16px;
+           color: #949492;
+
+         }
+       }
+
+
+
+
+
+
+     .botomo-content{
+        width: 100%;
+          display:inline-block;
+          float:left;
+   .body-pics{
+     width: 50%;
+     display: inline-flex;
+       flex-direction: column;
+       justify-content:center;
+       padding: 10px;
+       .img-con{
+         width: 100%;
+         img{
+           width: 200px;
+           height: 220px;
+           
+         }
+       }
+       .desc-name{
+
+    width:100%;
+        color:#232323;;
+        font-size: 16px;
+       }
+        .desc{
+        width:100%;
+        color:#33342F;
+        font-size: 14px;
+   
+     }
+     .desc-post{
+       height: 25px;
+       width:55px;
+      //  padding: 5px;
+        color:#fff;
+        font-size: 14px;
+        background-color:#F3367C;
+        border-radius: 5px  5px 5px 5px; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+     }
+
+      .con-botom{
+        width:100%;
+       display: flex;
+       justify-content: space-between;
+   
+         .body-left{
+       width:60%;
+       display: flex;
+       justify-content: center;
+       padding: 5px;
+       align-items: center;
+           .body-logo{
+          
+               color: #F3367C;
+        width: 100px;
+          display: flex;
+          font-size: 16px;
+            
+             img{
+                border-radius: 50%;
+               width:28px;
+               height: 28px;
+             }
+   
+           }
+   
+           .body-nickname{
+             padding-left: 5px;
+             color: #949492;
+        width: 100px;
+          display: flex;
+          font-size: 14px;
+          align-items: center;
+            text-decoration:line-through;
+          justify-content: center;
+           }
+   
+             }
+         .body-right{
+         
+           display: flex;
+           justify-content: center;
+           align-items: center;
+       width: 30%;
+      display: flex;
+      img{
+         width: 30px;
+     height: 25px;
+      }
+   icon{
+     width: 30px;
+     height: 30px;
+   }
+   .num{
+    
+     color: #949492;
+     font-size: 12px;
+   }
+         }
+        }
+      }
+    }
+   
+
+    .title-goods{
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      padding: 30px 40px;
+      color: #20201e;
+      font-size: 18px;
+      align-items: center;
+    }
+    
+    
+   
+   
+  
+   

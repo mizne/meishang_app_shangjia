@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-row class="head">
+    <ion-col size='1' (click)='back()'>
+      <img src="../../assets/首页/back.png" alt=""  [ngStyle]="{width:'12px',verticalAlign:'middle'}" >
+    </ion-col>
+    
+    <ion-col size='9'>   <ion-searchbar placeholder="请输入搜索的关键字" color='light' [(ngModel)]="goodsName"></ion-searchbar> </ion-col>
+   
+    <ion-col size='2' (click)='search()'>
+     搜索
+    </ion-col>
+
+
+</ion-row>
+</ion-header>
+
+<ion-content padding>
+  <div class="goods" >
+    <ion-card class="goods-card"  *ngFor="let k of searchArr;let i=index">
+        <ion-row>
+          <ion-col (click)='goDetail(k.RecordId)'>
+            <img [src]='k?.PicList[0].PicPath ? k?.PicList[0].PicPath:imgSrc' alt="" [ngStyle]="{height:'100%'}">
+          </ion-col>
+          <ion-col size='7.4'>
+          <ion-row >
+            <ion-col (click)='goDetail(k.RecordId)'>
+              {{k?.productTitle}}
+            </ion-col>
+          </ion-row>
+          <ion-row (click)='goDetail(k.RecordId)'>
+            <ion-col>
+              售价:￥{{k?.ProductPrice}}
+            </ion-col>
+            <ion-col>
+              销量:{{k?.SalesVolum}}
+            </ion-col>
+          </ion-row>
+          <ion-row (click)='goDetail(k.RecordId)'>
+            <ion-col>
+              储存:{{k?.StockNumber}}
+            </ion-col>
+            <ion-col>
+              评价:{{k?.RankValue ? K?.RankValue :0}}
+            </ion-col>
+          </ion-row>
+          <div class="operate" text-right>
+            
+                
+                  <button mat-icon-button [matMenuTriggerFor]="menu" text-center [ngStyle]="{background:'white'}">
+                    <img src="../../assets/商品管理/操作.png" alt="" [ngStyle]="{width:'40px',margin:'0 auto',maxWidth:'166%'}">
+                  </button>
+                  <mat-menu #menu="matMenu" >
+                    <button mat-menu-item (click)='up(k?.RecordId)'  *ngIf="k?.IsShow==false">
+                      
+                      <span>上架</span>
+                    </button>
+                    <button mat-menu-item (click)='down(k?.RecordId)'  *ngIf="k?.IsShow==true&&k?.StockNumber!='0'">
+                     
+                      <span>下架</span>
+                    </button>
+                    <button mat-menu-item (click)='delete(k?.RecordId)' *ngIf="k?.IsRecycled==false">
+                     
+                      <span>删除</span>
+                    </button>
+                    <button mat-menu-item (click)='view(k?.RecordId)'  *ngIf="k?.IsRecycled==false||k?.IsShow==true||k?.IsShow==false">
+                     
+                      <span>查看评价</span>
+                    </button>
+                  </mat-menu>
+
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+      
+  </div>
+</ion-content>

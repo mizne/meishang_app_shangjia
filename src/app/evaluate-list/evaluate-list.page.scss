@@ -1,0 +1,46 @@
+.header{
+    background: rgba(243,54,124,1);
+    color: white;
+    font-size: 16px;
+}
+.eva-list-card {
+    width: 96%;
+    margin: 1rem 0.5rem 1rem 0.5rem;
+    box-shadow: 0 0 0.4rem #999999;
+    background: #ffffff;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    .card-left {
+        float: left;
+        img {
+            width: 6.25rem;
+            height: 6.25rem;
+            border-radius: 0.2rem;
+        }
+    }
+    .card-right {
+        margin-left: 7rem;
+        .right-head {
+            span {
+                font-size: 1.125rem;
+            }
+        }
+        .right-body {
+            .content {
+                margin-top: 0.2rem;
+            }
+        }
+        .right-bottom {
+            text-align: right;
+            margin-top: 0.2rem;
+            .bottom-btn {
+                display: inline-block;
+                border: 1px solid rgba(243,54,124,1);
+                text-align: center;
+                color: rgba(243,54,124,1);
+                padding: 0.2rem 0.4rem;
+                border-radius: 0.1rem;
+            }
+        }
+    }
+}

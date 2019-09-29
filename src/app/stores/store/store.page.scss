@@ -1,0 +1,118 @@
+.logo{
+    text-align: center;
+    background:white;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    z-index: 100;
+    position: absolute;
+    top: 42%;
+    left: 0;
+    right: 0;
+    margin:0  auto;
+    line-height: 80px;
+    background: rgb(230, 221, 221);
+    overflow: hidden;
+}
+.logo>img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+}
+
+.header{
+    background: #F4367C;
+    color: white;
+    font-size: 14px;
+  }
+  .storeName{
+      font-size: 16px;
+      
+  }
+  .lt{
+      font-size: 20px;
+      
+  }
+  .pic{
+      position: relative;
+     
+  }
+  .sm{
+      margin-top: 55px;
+      font-size: 16px;
+      font-weight: bold;
+  }
+  .introduce{
+      width: 60%;
+      margin: 0 auto;
+      padding-bottom: 10px;
+  }
+ 
+  .rice{
+      margin: 5px;
+      float: left;
+      width: 46%;
+  }
+  #type  .mat-expansion-panel .mat-expansion-panel-body {
+    padding: 0 11px 16px;
+    z-index: 1000;
+} 
+.scard{
+    border-radius: 0;
+    margin: 0 0 5px 0;
+}
+.goodsPic{
+    text-align: center;
+    background: rgb(228, 225, 225)
+}
+.goodsPic>img{
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+}
+.price{
+    margin: 3px;
+    border-radius: 5px;
+    z-index: 500;
+}
+
+
+.masonry {
+    -moz-column-count: 2;
+    /* Firefox */
+    -webkit-column-count: 2;
+    /* Safari 和 Chrome */
+    column-count: 2;
+    -moz-column-gap: 0.3em;
+    -webkit-column-gap: 0.3em;
+    column-gap: 0.3em;
+    width: 99%;
+    margin: 0.3em auto;
+}
+
+.item {
+    border: 0;
+    padding: 0.2rem;
+    margin-bottom: 0.3em;
+    width: 100%;
+    height: auto;
+    word-wrap:break-word;
+  
+    -webkit-column-break-inside: avoid;
+    break-inside: avoid;
+      white-space: normal ; 
+    
+}
+
+.shopIcon {
+    float: right;
+    position: relative;
+    top: 0.1rem;
+    margin-right: 0.2rem;
+}
+  
+

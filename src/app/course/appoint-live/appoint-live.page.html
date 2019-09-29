@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-grid >
+    <ion-row>
+      <ion-col (click)='back()'>
+        <img src="../../assets/首页/back.png" alt=""  [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}" > 预约直播
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+<ion-content >
+<div class="bg">
+  <div class="liveTitle">
+    <ion-row [ngStyle]="{borderBottom:'1px solid rgba(153,153,153,1)'}">
+      <ion-col [ngStyle]="{lineHeight:'40px'}" size='3.8'>
+          直播类型:
+      </ion-col>
+      <ion-col size='8.2'>
+          <ion-input placeholder=""  [(ngModel)]="liveType"></ion-input>
+      </ion-col>
+    </ion-row>
+  
+    <p class="inp">
+        <ion-row>
+            <ion-col  size='2'>
+               
+            </ion-col>
+            <ion-col size='10'>
+                <ion-input placeholder="写个标题吸引更多客户" [(ngModel)]="liveTitle"></ion-input>
+            </ion-col>
+          </ion-row>
+    </p>
+    <div class="time" >
+        <ion-row>
+            <ion-col [ngStyle]="{lineHeight:'40px'}" size='3.8'>
+                预约开始时间:
+            </ion-col>
+            <ion-col size='8.2'>
+                <!-- <ion-input placeholder=""  [(ngModel)]="liveTime"></ion-input> -->
+                <ion-datetime display-format="YYYY/MM/DD HH:mm" picker-format="YYYY-MM-DDHH:mm" cancelText="取消" doneText="确认" [(ngModel)]="startTime"></ion-datetime>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col [ngStyle]="{lineHeight:'40px'}" size='3.8'>
+                  预约结束时间:
+              </ion-col>
+              <ion-col size='8.2'>
+                  <!-- <ion-input placeholder=""  [(ngModel)]="liveTime"></ion-input> -->
+                  <ion-datetime display-format="YYYY/MM/DD HH:mm" picker-format="YYYY-MM-DDHH:mm" cancelText="取消" doneText="确认" [(ngModel)]="endTime"></ion-datetime>
+              </ion-col>
+          </ion-row>
+    </div>
+  </div>
+  <div class="liveTitle" text-center>
+   <img [src]="liveBg" [ngStyle]="{width:'auto',height:'auto',minWidth:'100%',maxHeight:'100%',margin:'0 auto'}" *ngIf="liveBg;else bg" (click)='presentActionSheet()'>
+      <ng-template #bg><div (click)='presentActionSheet()' class="addlive">添加直播封面</div></ng-template>
+  </div>
+  <div [ngStyle]="{paddingTop:'6px'}" text-center>
+      <button mat-raised-button color="accent" (click)='applyLive()' *ngIf="!apply">点击开始申请</button>
+      <button mat-raised-button color="accent" (click)="StartLive()" *ngIf="apply">开始直播</button>
+
+  </div>
+</div>
+
+</ion-content>

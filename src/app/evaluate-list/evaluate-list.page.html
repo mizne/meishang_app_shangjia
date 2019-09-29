@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col  (click)='back()'>
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}"> 订单商品
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content>
+  <div class="eva-list-card" *ngFor="let item of productList;let i = index;">
+    <div class="card-left">
+      <img [src]="item.ProductId.PicList[0].PicPath" alt="">
+    </div>
+    <div class="card-right">
+      <div class="right-head">
+        <span>{{ item.ProductName }}</span>
+      </div>
+      <div class="right-body">
+        <div class="content">
+          单价：{{ item.ProductPrice }}
+        </div>
+        <div class="content">
+          数量：{{ item.ProductNum }}
+        </div>
+        <!-- <div class="content">
+          总价：0.1
+        </div> -->
+      </div>
+      <div class="right-bottom" (click)="evaDetail(item.ProductId.RecordId)">
+        <span class="bottom-btn">查看评价</span>
+      </div>
+    </div>
+  </div>
+</ion-content>

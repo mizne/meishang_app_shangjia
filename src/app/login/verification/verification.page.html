@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col text-right class="password" (click)='login()'>
+        密码登录
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-header>
+<ion-content>
+  <div class="phone">
+    登录商家端
+  </div>
+
+  <div class="inp">
+    <ion-row>
+      <ion-col size='2' [ngStyle]="{lineHeight: '40px',fontSize:'16px'}">
+        +86
+      </ion-col>
+      <ion-col size="10">
+        <ion-input placeholder="请输入手机号" [(ngModel)]="tel" required minlength='11' maxlength='11'></ion-input>
+      </ion-col>
+    </ion-row>
+    <mat-divider></mat-divider>
+  </div>
+  <div class="inp">
+    <ion-row>
+      <ion-col size="7">
+        <ion-input placeholder="请输入验证码" [(ngModel)]="verificate" required maxlength='4'></ion-input>
+      </ion-col>
+      <ion-col size="5">
+
+        <button item-right round [disabled]="!verifyCode.disable" class="co"
+          (click)="code()">{{verifyCode.verifyCodeTips}}</button>
+      </ion-col>
+    </ion-row>
+    <mat-divider></mat-divider>
+  </div>
+
+  <div class="btn" (click)='load()'>
+    登录
+  </div>
+
+  <div>
+    <ion-row>
+      <ion-col text-right>
+        —
+      </ion-col>
+      <ion-col text-center>
+        社交账号登录
+      </ion-col>
+      <ion-col text-left>
+        —
+      </ion-col>
+    </ion-row>
+    <ion-row>
+
+      <ion-col text-right class="line">
+        <img src="../../../assets/登录/微信.png" alt="" (click)='wechatLogin2()'>
+      </ion-col>
+      <!-- <ion-col text-center class="line">
+        <img src="../../../assets/登录/qq.png" alt="" [ngStyle]="{width: '14px'}">
+       </ion-col>
+      <ion-col text-left class="line">
+        <img src="../../../assets/登录/微博.png" alt="">
+      </ion-col> -->
+    </ion-row>
+
+  </div>
+  <div class="policy">
+    登录注册代表同意<span (click)='agreement()'>用户协议、隐私政策</span>
+  </div>
+</ion-content>

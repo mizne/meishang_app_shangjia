@@ -1,0 +1,135 @@
+<ion-header>
+  <ion-toolbar color="pink">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="store" (click)='back()' size='6'>
+          <div class="storeName"><img src="../../assets/首页/back.png" alt=""
+              [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}">
+            {{ss?.StockName}}</div>
+        </ion-col>
+
+        <ion-col>
+          <div class="msg" text-right (click)='quit()'>退出登录</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-card class="scard">
+    <img class="full-image" style="max-height: 100%; max-width:100% ;height: 180px;"
+      src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=481794964,3146825451&fm=26&gp=0.jpg" />
+    <p class="logo">
+      <img [src]='ss?.Logo ? ss?.Logo: imgSrc' alt="">
+    </p>
+    <p text-center class="sm">{{ss?.StockName ? ss?.StockName : '暂无店铺名称'}}</p>
+    <div class="text-center introduce">
+      {{ss?.StockIntroduce ? ss?.StockIntroduce:"暂无简介"}}
+    </div>
+
+  </ion-card>
+
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <!-- <mat-icon class="mat-18"></mat-icon> -->
+        <img src="../../assets/img/home.png" alt="" style="padding-left: 0.9rem;">
+        <span [ngStyle]="{ margin: '0 10px' }">首页</span>
+      </ng-template>
+      <!-- 
+      <ion-card class="price" *ngFor="let k of goodsList;let i=index">
+
+        <div (click)='toDetail(k.RecordId)' class="goodsPic">
+        <img [src]='k?.PicList[0].PicPath ? k?.PicList[0].PicPath:imgSrc'   />
+      </div>
+        <div [ngStyle]="{height:'70px'}" (click)='toDetail(k.RecordId)'>
+          <ion-card-title [ngStyle]="{ fontSize: '15px',margin:'3px 0' }"> {{k?.productTitle ? k?.productTitle:'暂无标题'}}</ion-card-title>
+          <ion-card-subtitle>{{k?.ProductDescription ? k?.ProductDescription:'暂无描述'}}</ion-card-subtitle>
+        </div>
+        <ion-row no-padding justify-content-center>
+          <ion-col text-left color="pink" size="small">
+            ￥{{k?.Price ? k?.Price:0}}
+          </ion-col>
+          <ion-col text-right>
+            <ion-icon name="eye" size="6"></ion-icon>0{{goodsView}}
+          </ion-col>
+        </ion-row>
+      </ion-card> -->
+
+
+
+      <div class="masonry">
+        <div class="item" *ngFor="let k of goodsList;let i=index" (click)='toDetail(k.RecordId)'>
+          <div class="item_content content-lar">
+            <ion-card class="price">
+
+              <div class="goodsPic">
+                <img [src]="k.PicList[0] ? k.PicList[0].PicPath : 'assets/img/sakura.jpg'" class="storeimg" />
+              </div>
+              <div style="margin-top: 1rem;">
+                <!-- <ion-card-title [ngStyle]="{ fontSize: '15px',margin:'3px 0' }"> {{k?.productTitle ? k?.productTitle:'暂无标题'}}</ion-card-title>
+                      <ion-card-subtitle>{{k?.ProductDescription ? k?.ProductDescription:'暂无描述'}}</ion-card-subtitle> -->
+                <div [ngStyle]="{ fontSize: '15px',margin:'3px 0',fontWeight:'bold',padding: '0 0.5rem' }">
+                  {{k?.productTitle ? k?.productTitle:'暂无标题'}}</div>
+                <!-- <div [ngStyle]="{margin: '5px 0'}">
+                  {{k?.ProductDescription ? k?.ProductDescription:'暂无描述'}}
+                </div> -->
+              </div>
+              <div style="padding-bottom: 0.5rem;">
+                <span style="margin-left: 0.5rem;"> ￥{{k?.ProductPrice ? k?.ProductPrice:0}} </span>
+                <span style="float:right;margin-right: 0.8rem;">0</span><ion-icon name="eye" size="6" class="shopIcon"></ion-icon>
+              </div>
+              <!-- <ion-row >
+                      <ion-col text-left color="pink" size="small">
+                        ￥{{k?.Price ? k?.Price:0}}
+                      </ion-col>
+                      <ion-col text-right>
+                        <ion-icon name="eye" size="6"></ion-icon>0{{goodsView}}
+                      </ion-col>
+                    </ion-row> -->
+            </ion-card>
+          </div>
+        </div>
+      </div>
+
+    </mat-tab>
+    <!-- <mat-tab label="Two">
+      <ng-template mat-tab-label>
+        <mat-icon class="mat-18">subject</mat-icon>
+        <span [ngStyle]="{ margin: '0 10px' }">分类</span>
+      </ng-template>
+      <div id="type">
+        <mat-accordion *ngFor="let k of typeList;let i=index">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{k?.Name}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ion-card class="rice">
+
+              <img src="https://img3.imgtn.bdimg.com/it/u=2892998309,882215164&fm=26&gp=0.jpg" alt="" />
+
+              <ion-card-title [ngStyle]="{ fontSize: '15px',margin:'3px 0' }">主标题</ion-card-title>
+              <ion-card-subtitle>副标题</ion-card-subtitle>
+
+              <ion-row no-padding justify-content-center>
+                <ion-col text-left color="pink" size="small">
+                  ￥180.00
+                </ion-col>
+                <ion-col text-right>
+                  <ion-icon name="eye" size="6"></ion-icon>1321
+                </ion-col>
+              </ion-row>
+            </ion-card>
+
+          </mat-expansion-panel>
+        </mat-accordion>
+
+      </div>
+    </mat-tab> -->
+  </mat-tab-group>
+</ion-content>

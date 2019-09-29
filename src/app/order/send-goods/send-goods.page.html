@@ -1,0 +1,205 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col size='4.8' (click)='back()'>
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}">
+      </ion-col>
+      <ion-col size='7.2'>
+        订单详情
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+<ion-content class="ion-content">
+  <div class="order">
+    <div class="order-head" text-center>
+      <div [ngStyle]="{fontSize: '16px',margin:'5px 0'}" *ngIf="OrderDetailList?.state=='101'">等待买家付款</div>
+      <div [ngStyle]="{fontSize: '16px',margin:'5px 0'}" *ngIf="OrderDetailList?.state=='201'">待发货</div>
+      <div [ngStyle]="{fontSize: '16px',margin:'5px 0'}" *ngIf="OrderDetailList?.state=='202'">已发货</div>
+      <div [ngStyle]="{fontSize: '16px',margin:'5px 0'}" *ngIf="OrderDetailList?.state=='401'">已完成</div>
+      <div [ngStyle]="{fontSize: '16px',margin:'5px 0'}" *ngIf="OrderDetailList?.state=='402'">已关闭</div>
+      <div [ngStyle]="{fontSize: '16px',margin:'5px 0'}" *ngIf="OrderDetailList?.state=='301'">售后 退款</div>
+      <div [ngStyle]="{fontSize: '16px',margin:'5px 0'}" *ngIf="OrderDetailList?.state=='302'">售后 拒绝退款</div>
+      <div [ngStyle]="{fontSize: '16px',margin:'5px 0'}" *ngIf="OrderDetailList?.state=='303'">售后 退款中</div>
+      <div [ngStyle]="{fontSize: '16px',margin:'5px 0'}" *ngIf="OrderDetailList?.state=='311'">售后 退款退货</div>
+      <div [ngStyle]="{fontSize: '16px',margin:'5px 0'}" *ngIf="OrderDetailList?.state=='312'">售后 拒绝退款退货</div>
+      <div [ngStyle]="{fontSize: '16px',margin:'5px 0'}" *ngIf="OrderDetailList?.state=='313'">售后 退款退货中</div>
+      <div [ngStyle]="{fontSize: '16px',margin:'5px 0'}" *ngIf="OrderDetailList?.state=='323'">售后 换货中</div>
+      <div [ngStyle]="{fontSize: '16px',margin:'5px 0'}" *ngIf="OrderDetailList?.state=='322'">售后 拒绝换货</div>
+      <div [ngStyle]="{fontSize: '16px',margin:'5px 0'}" *ngIf="OrderDetailList?.state=='321'">售后 同意换货</div>
+
+      <p [ngStyle]="{color: 'rgba(102,102,102,1)',fontSize:'12px'}" class="order_time"> 订单时间：{{OrderDetailList?.CreatedAt}}</p>
+      <ion-row [ngStyle]="{color: 'rgba(102,102,102,1)',fontSize:'12px',marginTop:'-10px'}">
+        <ion-col size='9' text-left>
+          <!-- <img class="order_img" src="../../../assets/订单管理/快递.png" alt="" [ngStyle]="{width:'13.4px',margin:'0 6px'}"> -->
+          <span class="order_number">订单编号：{{OrderDetailList?.RecordId || '无订单号'}}</span>
+        </ion-col>
+        <ion-col size='3'><span class="copy" (click)='copy(OrderDetailList?.RecordId)' ngxClipboard
+            [cbContent]="OrderDetailList?.RecordId">复制</span></ion-col>
+      </ion-row>
+    </div>
+  </div>
+  <div class="card">
+    <ion-row class="row1">
+      <ion-col>
+        <img src="../../../assets/订单管理/收货人信息.png" alt="">收货人信息
+      </ion-col>
+      <ion-col text-right class="edit">
+
+      </ion-col>
+    </ion-row>
+    <mat-divider></mat-divider>
+    <ion-row class="row2">
+      <ion-col>
+        收货人：{{ OrderDetailList?.Receiver }}
+      </ion-col>
+      <ion-col text-right>
+        手机号：{{ OrderDetailList?.ReceiverPhone }}
+      </ion-col>
+    </ion-row>
+    <ion-row class="row2">
+      <ion-col>
+        收货地址：{{ OrderDetailList?.ReceiverAddress }}
+      </ion-col>
+    </ion-row>
+    <mat-divider></mat-divider>
+    <ion-row class="row2">
+      <ion-col>
+        顾客留言：{{ OrderDetailList?.Remark }}
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <!-- <div class="card">
+    <ion-row class="row1">
+      <ion-col>
+        <img src="../../../assets/订单管理/快递.png" alt="">物流信息
+      </ion-col>
+      <ion-col text-right class="contact" (click)=' getRouteInfo()'>
+        {{OrderDetailList?.Logistics}}
+      </ion-col>
+    </ion-row>
+    <mat-divider></mat-divider>
+    <div>
+      <ion-row *ngFor="let k of routesInfo;let i=index">
+        <ion-col size='3' text-right>{{k.time}}</ion-col>
+        <ion-col size='1' text-center><img src="../../../assets/首页/circle.png" alt=""><br>
+          <img src="../../../assets/首页/line.png" alt="" class="line"></ion-col>
+        <ion-col size='8'>{{k.context}}</ion-col>
+      </ion-row>
+
+    </div>
+  </div> -->
+
+  <ion-row class="goods-count">
+    <ion-col class="count">
+      <img src="../../../assets/订单管理/商品.png" alt="" class="pic"> 共<span>{{OrderDetailList?.OrderLineNumber}}</span>件商品
+      <mat-divider></mat-divider>
+    </ion-col>
+  </ion-row>
+
+  <div class="card send-goods">
+    <ion-row class="goods-bg" *ngFor="let item of OrderProList;let i = index">
+      <ion-col size='3'>
+        <img [src]="item?.ProductId?.PicList[i]?.PicPath" alt="">
+      </ion-col>
+      <ion-col size='7'>
+        <div [ngStyle]="{fontSize: '14px'}">
+          {{item.ProductName}}
+        </div>
+        <!-- <p [ngStyle]="{fontSize: '12px',color:'rgba(153,153,153,1)'}">颜色：306</p> -->
+      </ion-col>
+      <ion-col size='2' text-right>
+        <div>
+          ￥{{item.ProductId.ProductPrice}}
+        </div>
+        <div [ngStyle]="{fontSize: '12px',color:'rgba(153,153,153,1)'}">
+          ×{{item.ProductNum}}
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        总价
+      </ion-col>
+      <ion-col text-right>
+        ￥{{OrderDetailList?.Sum}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        优惠
+      </ion-col>
+      <ion-col text-right>
+        ￥0
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        运费
+      </ion-col>
+      <ion-col text-right>
+        ￥0
+      </ion-col>
+    </ion-row>
+    <mat-divider></mat-divider>
+    <ion-row class="money">
+      <ion-col text-right>
+        实付金额：<span>￥{{OrderDetailList?.Sum}}</span>
+      </ion-col>
+    </ion-row>
+    <mat-divider></mat-divider>
+    <ion-row>
+      <ion-col text-right>
+        <ion-row>
+          <ion-col text-left size='5'>
+            <button mat-stroked-button
+              *ngIf="OrderDetailList?.IsPostSale === true && OrderDetailList?.state !== '202'"
+              (click)='selldetail()'>
+              售后详情
+            </button>
+          </ion-col>
+          <ion-col text-right size='3.5' text-right>
+            <div>
+              <div *ngIf="OrderDetailList?.IsPostSale === true && OrderDetailList?.state !== '202'">
+                <!-- <button mat-stroked-button [matMenuTriggerFor]="menuRef">
+                  {{ refuseBtnText(OrderDetailList?.state) }}
+                </button> -->
+                <!-- 退款 -->
+                <button mat-stroked-button *ngIf="OrderDetailList?.state === '303' ||
+                                                  OrderDetailList?.state === '313' ||
+                                                  OrderDetailList?.state === '323'"
+                        (click)="refuseMoney(OrderDetailList?.RecordId, OrderDetailList?.state)">拒绝
+                </button>
+              </div>
+            </div>
+          </ion-col>
+
+          <ion-col size='3.5'>
+            <!-- <button mat-stroked-button color="accent" (click)='orderAction(OrderDetailList.RecordId)'>{{ btnText(OrderDetailList?.state) }}</button> -->
+            <!-- 待付款 -->
+            <button mat-stroked-button color="accent" (click)="presentAlertPrompt(OrderDetailList?.RecordId)" *ngIf="OrderDetailList?.state === '101'">修改价格
+            </button>
+            <!-- 待发货 -->
+            <button mat-stroked-button color="accent" (click)="send(OrderDetailList?.RecordId)" *ngIf="OrderDetailList?.state === '201'">我要发货
+            </button>
+            <button mat-stroked-button color="accent" (click)="logistic(OrderDetailList?.RecordId)" *ngIf="OrderDetailList?.state === '202' || OrderDetailList?.state === '401' || OrderDetailList?.state === '402' ">查看物流
+            </button>
+            <!-- 退款 -->
+            <button mat-stroked-button color="accent" (click)="acceptOrder(OrderDetailList?.RecordId, OrderDetailList?.state)"
+                       *ngIf="OrderDetailList?.state === '303' ||
+                              OrderDetailList?.state === '313' ||
+                              OrderDetailList?.state === '323'">同意
+            </button>
+            <!-- 已完成 -->
+            <button mat-stroked-button color="accent" (click)="view(OrderDetailList?.RecordId)" *ngIf="OrderDetailList?.state === '401'">查看评价
+            </button>
+            <!-- 已关闭 -->
+            <button mat-stroked-button color="accent" (click)="deleteOrder(OrderDetailList?.RecordId)" *ngIf="OrderDetailList?.state === '402'">删除
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

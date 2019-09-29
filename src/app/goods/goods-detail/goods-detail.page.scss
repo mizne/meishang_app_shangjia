@@ -1,0 +1,90 @@
+.circle{
+width: 30px;
+height: 30px;
+border-radius: 50%;
+background: #353535;
+opacity: 0.5;
+display: inline-block;
+text-align: center;
+margin-top: 8%;
+margin-left: 1%;
+position: fixed;
+top: 2%;
+left: 5%;
+}
+.circle>img{
+    margin-top: 4px;
+}
+.head{
+    // background: url(https://img0.imgtn.bdimg.com/it/u=3590069947,3609584061&fm=26&gp=0.jpg) no-repeat;
+    // height: 300px;
+}
+.goodsName>span{
+    display: inline-block;
+    // background: url(../../../assets/商品管理/circle.png) no-repeat 100% 100%;
+    color: white;
+   background: rgba(243,54,124,1);
+    text-align: center;
+    margin-right: 5px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding: 2px 5px;
+
+}
+
+.headcover{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+.goodsName{
+    font-size: 14px;
+    // font-weight: bold;
+    
+}
+.price{
+    color: rgba(243,54,124,1);
+    font-size: 20px;
+    padding-top: 10px;
+}
+.all{
+    color: rgba(243,54,124,1);
+    font-size: 14px;
+    
+}
+.all>img{
+    vertical-align: middle;
+}
+.common{
+    color: rgba(153,153,153,1);
+    
+}
+.common>img{
+    width: 3px;
+}
+.ion-item{
+    border: 0 none;
+}
+.sell{
+    
+    line-height: 36px;
+    margin: 10px 0;
+    color: rgba(153,153,153,1);
+}
+.sell>img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    vertical-align: bottom;
+    margin-right: 10px;
+}
+.btn>button{
+margin: 0 5px;
+}
+.content{
+    font-size: 12px;
+}
+.btn{
+    margin: 20px 0;
+}

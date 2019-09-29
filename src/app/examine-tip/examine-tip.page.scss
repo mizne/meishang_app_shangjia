@@ -1,0 +1,30 @@
+.header{
+    background: rgba(243,54,124,1);
+    color: white;
+    font-size: 16px;
+}
+.examine_body {
+    text-align: center;
+    .examine_top {
+        img {
+            width: 10rem;
+            height: 10rem;
+            margin-top: 5rem;
+        }
+    }
+    .content {
+        font-size: 16px;
+        margin-top: 1rem;
+        color: gray;
+    }
+    .examine_bottom {
+        margin-top: 5rem;
+        .exmine_btn {
+            display: inline-block;
+            padding: 0.4rem 1.5rem;
+            border-radius: 0.2rem;
+            background: rgba(243,54,124,1);
+            color: white;
+        }
+    }
+}

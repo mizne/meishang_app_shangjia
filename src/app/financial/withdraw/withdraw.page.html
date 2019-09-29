@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col (click)='back()'>
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}">
+        立即提现
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+<ion-content>
+  <div class="card money-card">
+    <ion-row class="customer-money">
+      <ion-col size='3'>
+        可提现金额
+      </ion-col>
+      <ion-col size='9'>
+        {{ accountAmountForGet }}
+      </ion-col>
+    </ion-row>
+    <mat-divider></mat-divider>
+    <ion-row>
+      <ion-col size='3' [ngStyle]="{lineHeight: '40px'}">
+        本次提现
+      </ion-col>
+      <ion-col size='9'>
+        <ion-input placeholder="本次最高提现2万" [(ngModel)]="money" onkeyup="this.value=this.value.replace(/\D/g,'')"
+          onafterpaste="this.value=this.value.replace(/\D/g,'')"></ion-input>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div class="card money-card">
+    <ion-row>
+      <ion-col>
+        提现账户
+      </ion-col>
+      <ion-col text-right (click)='account()'>
+        <span class="choose" [ngStyle]="{color:'rgba(153,153,153,1)'}">选择提现账户</span> &nbsp;<img
+          src="../../../assets/财务管理/right.png" alt="" class="right">
+      </ion-col>
+    </ion-row>
+  </div>
+  <div text-center [ngStyle]="{margin: '20px 0'}">
+    <button mat-raised-button color="accent" [ngStyle]="{width:'200px'}" (click)='isCash()'>开始提现</button>
+  </div>
+  <ul class="uls">
+    <li (click)="alertSuccess()">
+      金额低于1元时不可提现
+    </li>
+    <li>
+      提现到账时间规则，<span class="witch" (click)='witch()'>点击查看</span>
+    </li>
+  </ul>
+</ion-content>

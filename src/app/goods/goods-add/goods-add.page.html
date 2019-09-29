@@ -1,0 +1,272 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}"
+          (click)='back()'> {{goodsTitle}}
+      </ion-col>
+      <ion-col text-right (click)='release()'>
+        {{goodsBtn}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+<ion-content [ngStyle]="{background:'gray'}">
+  <div class="contents">
+    <div class="addPic">
+
+      <div [ngStyle]="{padding: '10px 0 0 20px'}">
+        商品图片
+      </div>
+
+      <div class="add">
+        <ng-template #elseBlock><span (click)='presentActionSheet()'>+添加图片</span></ng-template>
+        <img [src]='imgsrc' alt="" [ngStyle]="{width:auto,height:auto,maxWidth:'100%',maxHeight:'100%'}"
+          *ngIf="imgsrc;else elseBlock" (click)='presentActionSheet()'>
+
+      </div>
+      <div class="blank"></div>
+      <div>
+        <ion-textarea rows="6" cols="20" placeholder="输入商品标题" [(ngModel)]="producetTitle"></ion-textarea>
+      </div>
+      <div class="blank"></div>
+      <!-- <div>
+        <ion-row>
+          <ion-col size='3' class="pp">
+            初始价格
+          </ion-col>
+          <ion-col size='9'>
+            <input placeholder="请输入商品显示价格" [(ngModel)]="firstPrice" type='number'
+              onblur="this.value= parseFloat(this.value)">
+          </ion-col>
+        </ion-row>
+        <mat-divider></mat-divider>
+        <ion-row>
+          <ion-col size='3' class="pp">
+            总库存
+          </ion-col>
+          <ion-col size='9'>
+            <ion-input placeholder="请输入商品总库存" [(ngModel)]="allTotal" type='number'
+              onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+            </ion-input>
+          </ion-col>
+        </ion-row>
+      </div>
+      <div class="blank"></div> -->
+      <!-- *ngIf="display" -->
+      <div>
+        <div *ngFor="let i of goods; let k=index" class="goodsAdd">
+          <img src="../../../assets/商品管理/减少.png" alt="" (click)='delete(k)' class="pic">
+          <ion-row>
+            <ion-col size='3' class="pp">
+              规格
+            </ion-col>
+            <ion-col size='9'>
+              <ion-input placeholder="请输入商品规格，如颜色、尺码" [(ngModel)]="i.size"></ion-input>
+            </ion-col>
+          </ion-row>
+          <mat-divider></mat-divider>
+          <ion-row>
+            <ion-col size='3' class="pp">
+              价格
+            </ion-col>
+            <ion-col size='9'>
+              <input placeholder="请输入商品价格" [(ngModel)]="i.price" type='number'
+                onblur="this.value= parseFloat(this.value)">
+            </ion-col>
+          </ion-row>
+          <mat-divider></mat-divider>
+          <ion-row>
+            <ion-col size='3' class="pp">
+              库存
+            </ion-col>
+            <ion-col size='9'>
+              <ion-input placeholder="设置合理库存" [(ngModel)]="i.total" type='number'
+                onkeyup="this.value=this.value.replace(/\D/g,'')"
+                onafterpaste="this.value=this.value.replace(/\D/g,'')"></ion-input>
+            </ion-col>
+          </ion-row>
+          <div class="blank"></div>
+        </div>
+      </div>
+      <div class="goodsSize" *ngIf="display">
+        <button mat-button color="accent" class="jq" (click)='add()'>+添加商品规格</button>
+      </div>
+      <div class="goodsSize" *ngIf="!display">
+        <button mat-button color="accent" class="jq" (click)='add1()'>+添加商品规格</button>
+      </div>
+
+      <div [ngStyle]="{fontSize:'14px'}" class="address">
+        <ion-row class="an">
+          <ion-col size='7' class="chooseType">
+              配送方式
+          </ion-col>
+          <ion-col size='5'>
+            <ion-row>
+              <ion-col class="other">
+                {{which}}
+              </ion-col>
+
+              <ion-col text-center>
+                <ion-select [(ngModel)]="distributionSelect" cancelText="取消" okText="确定">
+                  <ion-select-option [value]="item.id" *ngFor="let item of distributionModeList;let i=index">
+                    {{item?.Name ? item?.Name :'暂无配送方式' }}</ion-select-option>
+                </ion-select>
+              </ion-col>
+
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <div class="blank"></div>
+
+        <ion-row class="an">
+          <ion-col size='7' class="chooseType">
+              库存扣减方式
+          </ion-col>
+          <ion-col size='5'>
+            <ion-row>
+              <ion-col class="other">
+                {{which}}
+              </ion-col>
+
+              <ion-col text-center>
+                <ion-select [(ngModel)]="stockReduceSelect" cancelText="取消" okText="确定">
+                  <ion-select-option [value]="item.id" *ngFor="let item of stockReduceList;let i=index">
+                    {{item?.Name ? item?.Name :'暂无库存扣减方式' }}</ion-select-option>
+                </ion-select>
+              </ion-col>
+
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <div class="blank"></div>
+
+        <ion-row class="an">
+          <!-- <ion-col size='7' class="chooseType">
+            销售地区
+          </ion-col>
+          <ion-col size='5' style="margin: auto 0;">
+            <div class="selectStyle" (click)="selectModal()">{{ selectSaleArea }}</div>
+          </ion-col> -->
+          <div class="bodyStyle">
+            <div>销售地区</div>
+            <ion-radio-group (ionChange)="testtest()" [(ngModel)]="selectValue" >
+
+              <ion-item style="width: 100%">
+                <ion-label>全国</ion-label>
+                <ion-radio slot="start" value="allCity" checked style="--color-checked: #F3367C;"></ion-radio>
+              </ion-item>
+          
+              <ion-item style="width: 100%">
+                <ion-label style="width: 40%">其他</ion-label>
+                <ion-radio  slot="start" value="otherCity" style="--color-checked: #F3367C;"></ion-radio>
+                <input style="width: 50%" type="text" placeholder="请输入地区" class="inputStyle" [(ngModel)]="inputValue">
+              </ion-item>
+        
+            </ion-radio-group>
+          </div>
+        </ion-row>
+        <div class="blank"></div>
+        <ion-row class="an">
+          <ion-col size='7' class="chooseType">
+            品类
+          </ion-col>
+          <ion-col size='5'>
+            <ion-row>
+              <ion-col class="other">
+                {{which}}
+              </ion-col>
+
+              <ion-col text-center>
+                <ion-select [(ngModel)]="selecText" cancelText="取消" okText="确定" (ionChange)='choice()'>
+                  <ion-select-option [value]="item.RecordId" *ngFor="let item of CategoriesFirstList;let i=index">
+                    {{item?.Name ? item?.Name :'暂无分类' }}</ion-select-option>
+                </ion-select>
+              </ion-col>
+
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <div class="blank"></div>
+        <!-- <ion-row class="an">
+        <ion-col size=''>
+          商品图文描述编辑
+        </ion-col>
+        <ion-col size='' text-right>
+         <span> 未添加</span> <span>{{category2}}</span> <span [ngStyle]="{color:'rgba(153,153,153,1)',margin:'0 10px'}"><img src="../../assets/商品管理/返回.png" alt=""></span>
+        </ion-col>
+      </ion-row>
+      <div class="blank"></div> -->
+
+        <ion-row class="an">
+
+          <ion-col class="other" size="7">
+            分类
+          </ion-col>
+          <ion-col size="5">
+            <ion-row>
+              <ion-col>
+
+              </ion-col>
+              <ion-col>
+                <ion-select [(ngModel)]="selecText1" cancelText="取消" okText="确定" (ionChange)='cho($event)'>
+                  <ion-select-option [value]="item.RecordId" *ngFor="let item of CategoriesSecondList;let i=index">
+                    {{returnCategoriesSecondList(item.Name)}}</ion-select-option>
+                </ion-select>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <div class="blank"></div>
+
+        <ion-row class="an">
+          <ion-col class="other" size='12'>
+            <!-- <span (click)='add2()' *ngIf="typeGoods;else add">{{typeGoods}}</span>  
+
+            <ng-template #add>
+            <span (click)='add2()' >添加分类</span>  
+            <button mat-raised-button (click)='add2()'>添加分类</button>   
+               
+            </ng-template> -->
+            <ion-row>
+              <ion-col text-left size="12">
+                <span (click)='add2()' [ngStyle]="{marginLeft: '-5px'}" class="classStyle">添加分类</span>
+              </ion-col>
+              <ion-col text-right> {{typeGoods}}</ion-col>
+            </ion-row>
+
+
+          </ion-col>
+          <!-- <ion-col text-right size="6">
+
+            <div class="logo2" *ngIf="logosec;else upload">
+              <img [src]='logosec' alt="" (click)='isAdd()'>
+
+            </div>
+            <ng-template #upload>
+              <div class="other" (click)='isAdd()' text-right [ngStyle]="{lineHeight:'48px'}">
+                上传分类logo
+              </div>
+            
+
+            </ng-template>
+          </ion-col> -->
+        </ion-row>
+        <!-- [modules]="modules" -->
+        <!-- readOnly = "true" -->
+        <div class="blank"></div>
+        <ion-row class="editorStyle">
+          <div>商品详情</div>
+          <div class="progress_frame" *ngIf="showProgressBar">
+            <div class="progress_upload">上传进度:{{ progressPercent }}%</div>
+            <ion-progress-bar class="progress_style" color="primary" [value]="progressBar"></ion-progress-bar>
+            <span class="progress_btn" (click)="cancelUpload()">取消上传</span>
+          </div>
+          <app-quill-editor-wrapper [formControl]="richTextCtrl" class="editStyle" (videoPercent)="handleVideoPercent($event)" [videoCancelSubject]="videoCancelSubject"></app-quill-editor-wrapper>
+        </ion-row>
+      </div>
+
+    </div>
+  </div>
+  <div class="bott"></div>
+</ion-content>

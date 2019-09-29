@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col size='4.8'>
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}"
+          (click)='back()'>
+      </ion-col>
+      <ion-col size='7.2'>
+        售后详情
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+<ion-content>
+  <ion-card class="detail-card">
+    <ion-row>
+      <ion-col size='3' class="detail-word" text-center>
+        服务类型
+      </ion-col>
+      <ion-col size='' class="detail-type">
+        {{ serviceType }}
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-card class="detail-card">
+    <ion-row>
+      <ion-col size='3' class="detail-word" text-center>
+        服务原因
+      </ion-col>
+      <ion-col size='' class="detail-type">
+        {{ serviceReason }}
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-card class="detail-card">
+    <ion-row>
+      <ion-col class="detail-type customer">
+        {{ serviceContent ? serviceContent : '用户暂未填写'}}
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <!-- <div>
+    <img src="https://img3.imgtn.bdimg.com/it/u=2892998309,882215164&fm=26&gp=0.jpg" alt="">
+
+  </div> -->
+  <!-- <div text-center [ngStyle]="{margin:'10px 0'}">
+  <button mat-raised-button color='accent' [ngStyle]="{width:'100px'}" (click)='agree()'>同意</button>
+</div>
+<div text-center >
+  <button mat-raised-button  [ngStyle]="{width:'100px'}" (click)='disagree()'>不同意</button>
+</div> -->
+
+
+
+  <!-- <div text-center>
+  <button mat-button [matMenuTriggerFor]="menu" class="disagree()" >不同意</button>
+<mat-menu #menu="matMenu">
+ 
+  <div mat-menu-item >请选择不同意的理由：</div>
+ 
+ 
+  <div mat-menu-item > 
+    <label class="item item-radio" (click)='disagree()'>
+      <input type="radio" name="group" value="python">
+      <div class="radio-content">
+       <div class="item-content">
+        商品超过七天
+       </div>
+       <i class="radio-icon ion-checkmark"></i>
+      </div>
+    </label>
+  </div>
+  
+</mat-menu>
+</div> -->
+</ion-content>

@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="pink">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="store" (click)='back()'>
+          <div class="storeName"><img src="../../assets/首页/back.png" alt=""
+            [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}" > 完善店铺信息</div>
+        </ion-col>
+
+        <ion-col>
+          <div class="" text-right>查看店铺</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+
+ <mat-list>
+  <mat-list-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="store" size='3' [ngStyle]="{lineHeight: '40px'}">
+           店铺名称
+        </ion-col>
+
+        <ion-col size='9'>
+          <!-- <div class="msg" text-right>请输入店铺名称 <img src="../../../assets/商品管理/返回.png" alt=""></div> -->
+          <ion-input placeholder="请输入店铺名称"></ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <ion-grid>
+      <ion-row >
+        <ion-col class="store" [ngStyle]="{lineHeight: '40px'}" size='3'>
+           店铺简介
+        </ion-col>
+
+        <ion-col size='9'>
+         
+          <ion-input placeholder="请输入店铺简介"></ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </mat-list-item>
+ 
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="store">
+           店铺logo
+        </ion-col>
+
+        <ion-col>
+          <div class="msg" text-right> <img src="../../../assets/商品管理/返回.png" alt=""></div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </mat-list-item>
+</mat-list>
+<p text-center [ngStyle]="{paddingTop:'50px'}">
+  <button mat-raised-button color="accent" [ngStyle]="{width: '200px'}" (click)='done()'>完成</button>
+</p>
+</ion-content>

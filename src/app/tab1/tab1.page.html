@@ -1,0 +1,130 @@
+<ion-header>
+  <ion-toolbar color='pink'>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="store" (click)='store()'>
+          <div>店铺</div>
+        </ion-col>
+        <ion-col>
+          <div class="name"> {{ss?.StockName}}</div>
+        </ion-col>
+        <ion-col (click)='msg()'>
+          <div class="msg">消息</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-card>
+    <div class="text-center word" text-center>
+      <p>今日营业额(元)</p>
+      <p>{{ todayBusinessVolume }}</p>
+      <p>昨日{{ yesterdayBusinessVolume }}</p>
+      <ion-icon name="refresh" class="refresh_btn" (click)="refreshHomeData()"></ion-icon>
+    </div>
+
+    <mat-divider></mat-divider>
+    <ion-row>
+      <ion-col size='5'>
+        <div class=" word" text-center>
+          <p>今日付款单数</p>
+          <p>{{days1?.OrderNumber ? days1?.OrderNumber:'0'}}</p>
+          <p>昨日 {{days?.OrderNumber ? days?.OrderNumber:'0'}}</p>
+        </div>
+      </ion-col>
+      <ion-col size='2'>
+        <div class="bott" text-center>
+          |<br>
+          |<br>
+          |<br>
+          |<br>
+        </div>
+      </ion-col>
+      <ion-col size='5'>
+        <div class="text-center word" text-center>
+          <p>今日浏览人数</p>
+          <p>{{days1?.PVNumber ? days1?.PVNumber:'0'}}</p>
+          <p>昨日 {{days?.PVNumber ? days?.PVNumber:'0'}}</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <div>
+    <ion-row text-center class="type">
+      <!-- <ion-col (click)='lesson()'>
+          <div>
+              <img src="../../assets/首页/教程.png" alt="">
+            </div>
+            <p>
+              我的教程
+            </p>
+      </ion-col> -->
+      <ion-col (click)='addgoods()'>
+        <div>
+          <img src="../../assets/首页/加号（添加）(1).png" alt="">
+        </div>
+        <p>
+          添加商品
+        </p>
+      </ion-col>
+
+      <ion-col (click)='goodsManage()'>
+        <div>
+          <img src="../../assets/首页/形状 3.png" alt="">
+        </div>
+        <p>
+          商品管理
+        </p>
+      </ion-col>
+      <ion-col (click)='storeManage()'>
+        <div>
+          <img src="../../assets/首页/店铺.png" alt="">
+        </div>
+        <p>店铺管理</p>
+      </ion-col>
+      <ion-col (click)='courseManage()'>
+        <div>
+          <img src="../../assets/首页/课程.png" alt="">
+        </div>
+        <p>课程管理</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row text-center class="type">
+      <ion-col (click)='orderManage()'>
+        <div>
+          <img src="../../assets/首页/订单.png" alt="">
+        </div>
+        <p>
+          订单管理
+        </p>
+      </ion-col>
+      <ion-col (click)='financial()'>
+        <div>
+          <img src="../../assets/首页/财务管理.png" alt="">
+        </div>
+        <p>
+          财务管理
+        </p>
+      </ion-col>
+      <ion-col (click)='data()'>
+        <div>
+          <img src="../../assets/首页/数据.png" alt="">
+        </div>
+        <p>数据统计</p>
+      </ion-col>
+      <ion-col (click)='market()'>
+        <div>
+          <img src="../../assets/首页/营销活动.png" alt="">
+        </div>
+        <p>营销活动</p>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div class="bottom_version">
+    <span class="version_style">版本号：{{ versionCode }}</span>
+  </div>
+</ion-content>

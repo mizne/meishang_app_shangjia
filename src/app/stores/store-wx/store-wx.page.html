@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="pink">
+    <ion-row>
+      <ion-col class="title" (click)='back()'>
+       <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}" >
+      
+        微信账户
+      </ion-col>
+      
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <div class="wx-content">
+    <ion-grid>
+      <ion-row class="wx-word">
+        <ion-col >
+          微信号
+        </ion-col>
+        <ion-col text-right>
+          <span>点击授权</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div class="padding">
+      <button class="button button-block button-light">完成</button>
+    </div>
+  </div>
+</ion-content>

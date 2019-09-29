@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col (click)='back()'>
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}">
+        选择要参加的商品
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-header>
+<ion-content>
+  <div>
+    <ion-card class="goods" *ngFor="let k of allList">
+      <ion-row>
+        <ion-col size='1.5' text-center class="check_style">
+          <ion-checkbox color="primary" (ionChange)='change($event,k?.RecordId)'></ion-checkbox>
+        </ion-col>
+        <ion-col size='4.5' text-center class="img_style">
+          <div class="goodsPic">
+            <img [src]='k?.PicList[0].PicPath ? k?.PicList[0].PicPath:imgSrc' alt="" class="goodsImg">
+          </div>
+        </ion-col>
+        <ion-col size='6'>
+          <ion-row>
+            <ion-col> {{k?.productTitle ? k?.productTitle:'暂无'}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col> {{K?.chooseColor}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col> <span>包邮</span></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="price_style"> <span>￥</span>{{k?.ProductPrice ? k?.ProductPrice:0 }}</ion-col>
+          </ion-row>
+          <!-- <ul class="uls">
+            <li>
+            </li>
+            <li class="lis2">{{K?.chooseColor}}</li>
+            <li class="lis3">包邮</li>
+            <li text-right class="lis4"><em>￥</em><span >{{k?.Price ? k?.Price:0 }}</span></li>
+          </ul> -->
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+</ion-content>
+<ion-footer>
+  <div text-center>
+    <button mat-raised-button color="accent" [ngStyle]="{width:'140px',borderRadius:'30px'}" (click)='ad()'>确定</button>
+  </div>
+</ion-footer>

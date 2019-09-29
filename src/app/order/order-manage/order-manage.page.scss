@@ -1,0 +1,124 @@
+.header{
+    background: rgba(243,54,124,1);
+    color: white;
+    font-size: 16px;
+}
+
+// .mail{
+//     color: rgba(102,102,102,1);
+//     font-size: 12px;
+// }
+// .mail span{
+//     margin-right: 8px;
+// }
+// .edit{
+//     padding: 20px 0;
+// }
+// .goods-bg{
+//     background: rgba(241,241,241,1);
+// }
+// .one{
+//     opacity: 0.3;
+//     width: 100%;
+//     height: 100%;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     position: fixed;
+//     background:gray;
+//     background-size: 100% 100%;
+//     z-index: 100;
+// }
+// .two{
+//     width: 80%;
+//     opacity: 1;
+//     height: 360px;
+//     margin: 30% auto;
+//     background:white;
+//     color: black;
+//     z-index: 1000;
+//     font-size:12px;
+//     position: fixed;
+//     top: 5%;
+//     left: 10%;
+// }
+// .big{
+//     position: relative;
+//     background-color: #f1f1f1;
+// }
+
+// .sc-ion-input-ios-h {
+//     --padding-top: 3px;
+//     --padding-end: 2px;
+//     --padding-bottom: 5px;
+//     --padding-start: 0;
+//     font-size: inherit;
+//     z-index: 1000;
+// }
+// .com{
+//     line-height: 40px;
+// }
+// .kk{
+//     width: 100%;
+//     height: 100%;
+//     border: 0.2px solid rgb(216, 208, 208);
+//     padding-left: 10px; 
+// }
+.buttons-tab{
+    width: 100%;
+    display: flex;
+    background-color: #f1f1f1;
+}
+.buttons-tab .button1.active {
+    color:#F3367C;
+    border-color:#F3367C;
+}
+.buttons-tab .button1 {
+    text-align: center;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    color: #0e0f13;
+    font-size: 0.7rem;
+    width: 100%;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    height: 2rem;
+    line-height: 2rem;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+}
+.kd{
+    img{
+        float: left;
+        margin: .3rem .1rem 0 .1rem;
+        width: 1rem;
+    }
+}
+.pay{
+    text-align: right;
+}
+.card_btn button{
+    border-radius: 1rem;
+    margin: .2rem .2rem;
+}
+.card_btn1{
+    color:#999999;
+}
+.sendDetail{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #ffffff;
+}
+.send_btn button{
+    margin: 0 2rem;
+}
+.inp{
+    line-height: 40px;
+}
+.card_btn3{
+    float: left;
+}

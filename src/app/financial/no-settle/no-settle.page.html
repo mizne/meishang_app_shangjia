@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col (click)='back()'>
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}"
+          > 未结算收入
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content>
+  <div class="card money-card">
+      <ion-row>
+          <ion-col size='9' class="head-left">
+            未结算收入
+          </ion-col>
+          <ion-col size='3' text-right class="head-right">
+            ￥<span>20</span>
+          </ion-col>
+        </ion-row>
+  </div>
+<div class="details-bg">
+    <ion-row *ngFor="let k of nosettleArr">
+        <ion-col size='7'>
+         {{k?.CreatedAt}}
+        </ion-col>
+        <ion-col size='5' text-right>
+         {{k?.Sum}}
+        </ion-col>
+        <ion-col>
+    
+        </ion-col>
+      </ion-row>
+
+  </div>
+</ion-content>

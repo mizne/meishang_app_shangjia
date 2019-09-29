@@ -1,0 +1,181 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col  (click)='back()'>
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}"
+         > 课程详情
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content>
+    <!--Banner-->
+    <!-- <div class="ad" style="clear: both">
+      <ion-slides pager="true" autoplay="1000" loop="true">
+        <ion-slide>
+          <img src="">
+        </ion-slide>
+        <ion-slide>
+          <img src="https://img3.imgtn.bdimg.com/it/u=1055727654,337004439&fm=26&gp=0.jpg">
+        </ion-slide>
+        <ion-slide>
+          <img src="https://img3.imgtn.bdimg.com/it/u=1055727654,337004439&fm=26&gp=0.jpg">
+        </ion-slide>
+        <ion-slide>
+          <img src="https://img3.imgtn.bdimg.com/it/u=1055727654,337004439&fm=26&gp=0.jpg">
+        </ion-slide>
+        <ion-slide>
+          <img src="https://img3.imgtn.bdimg.com/it/u=1055727654,337004439&fm=26&gp=0.jpg">
+        </ion-slide>
+    
+      </ion-slides>
+    </div> -->
+<!-- 标题 -->
+
+<!-- 封面 -->
+<img [src]='goodsList?.CourseFirstImage' alt="" class="Imgco">
+<div class="title-course" >
+{{goodsList?.CourseIntroduction}}
+</div>
+
+
+<div>
+
+  <div>
+    <ion-row>
+      <ion-col size='2.5'>
+          <div text-center>
+             <span class="sp"> <img [src]='ss?.Logo' alt=""></span>
+            </div>
+      </ion-col>
+      <ion-col size='9.5'>
+          <div class="storeName" text-left>{{ss?.StockName}}</div>
+      </ion-col>
+    </ion-row>
+   
+  </div>
+  <!-- <div class="body-right">
+    <div class="add-like">收藏 </div>
+    <div class="add-like">关注</div>
+   
+  </div> -->
+</div>
+
+
+<!-- 视频时长 -->
+<div class="desc-video">
+  <div class="body-logo">
+  <ion-icon name="alarm"></ion-icon>
+  </div>
+  <div class="body-nickname">时长1小时2分钟</div>
+</div>
+
+
+<!-- 分享人数 -->
+<div class="desc-video">
+  <div class="body-logo">
+    <ion-icon name="share"></ion-icon>
+  </div>
+  <div class="body-nickname">65人分享</div>
+
+</div>
+<!-- 星级 -->
+<div class="desc-video">
+    <div class="body-logo">
+    <ion-icon name="star"></ion-icon>
+      <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+    </div>
+    <div class="body-nickname">课程评分</div>
+
+</div>
+
+<!--  -->
+<div class="btns-teaching" >
+  <div class="recom" > 推荐</div>
+  <div class="categrory"> 分类</div>
+
+</div>
+
+<div class="tips">
+ 
+<!-- <img src="assets/img/tips.png" alt=""> -->
+<div class="title"   >
+
+  \ 课程视频 / 
+</div>
+
+</div>
+
+<!-- 视频 -->
+<!-- <div class="desc-video" *ngFor="let article of courseDetails; let i = index">
+  <div class="body-logo">
+    <img [src]="article.image" alt="">
+  </div>
+  <div class="desc-makeup">{{article.title}}</div>
+</div> -->
+
+<div *ngFor="let article of courseDetails; let i = index">
+  <div class="courseChild">第{{i+1}}节课程</div>
+  <div class="courseChild">课程标题:<span> {{article?.title}}</span></div>
+  <video style="width: 100%;height: 200px" #media id="singleVideo" preload="auto"  controls >
+    <source [src]='article?.video' type="video/mp4">
+    </video>
+</div>
+
+
+<!-- 包含商品 -->
+<div class="goods-body">
+<!-- routesInfo -->
+  <div class="goods-per"  *ngFor="let item of routesInfo; let i = index">
+    <div class="goods-left">
+      <img src="assets/img/red.png" alt="">
+    </div>
+    <div class="goods-right">
+      <div class="goods-title">
+       {{item.productTitle}}
+      </div>
+      <div class="goods-type">
+        <div class="type-con">限时抢购</div>
+     
+      </div>
+      <div class="goods-price">
+        <div class="price-new">￥{{item.ProductPrice}}</div>
+          <!-- <div class="price-old">￥299</div> -->
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- 评论 -->
+<div class="comments-body">
+  <div class="comm-top">
+    <div class="comm-left">
+      <div class="logo-comm">
+        <img src="assets/img/friends.jpg" alt="">
+      </div>
+      <div class="nick-comm">陆小凤:</div>
+
+    </div>
+    <div class="comm-right">啊啊啊啊，超喜欢这个课程啊，好有用啊，我一定安利给我朋友，</div>
+  </div>
+  <div class="comm-bottom">点击查看更多评论</div>
+
+</div>
+<div style="height:100px;"> </div>
+
+
+
+<!-- 底部按钮 -->
+
+
+
+
+
+</ion-content>

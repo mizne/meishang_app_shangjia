@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="pink">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="store" (click)='back()'>
+          <img src="../../assets/首页/back.png" alt=""
+            [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}"> 店铺名称
+        </ion-col>
+        <ion-col (click)='save()'>
+          <div class="" text-right>保存</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="wx-content">
+    <div class="wx-word">
+      <ion-label position="stacked"></ion-label>
+      <ion-input placeholder="请输入店铺名称" [(ngModel)]="storeName"></ion-input>
+    </div>
+  </div>
+</ion-content>

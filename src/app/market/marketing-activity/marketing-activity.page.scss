@@ -1,0 +1,26 @@
+.header{
+    background: rgba(243,54,124,1);
+    color: white;
+    font-size: 16px;
+}
+
+
+ul>li{
+    width: 28%;
+    height: 30px;
+    line-height: 30px;
+    background:rgba(239,239,239,1);
+    float: left;
+    margin: 2.5%;
+    text-align: left;
+    overflow: hidden;
+
+}
+li img{
+    vertical-align: middle;
+    margin-right: 10px
+}
+
+.uls img{
+    margin-left: 10px;
+}

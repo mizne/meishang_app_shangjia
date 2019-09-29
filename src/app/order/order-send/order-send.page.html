@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col size='4.8' (click)='back()'>
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}">
+      </ion-col>
+      <ion-col size='7.2'>
+        我要发货
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content padding>
+  <div class="sendDetail" [ngStyle]="{textAlign: 'left'}">
+    <!-- <ion-row>
+      <ion-col size='3' class="inp">
+        寄件人:
+      </ion-col>
+      <ion-col size='9'>
+        <div class="kk">
+          <ion-input value='3132'></ion-input>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size='3' class="inp">
+        寄件人电话:
+      </ion-col>
+      <ion-col size='9'>
+        <div class="kk">
+          <ion-input value='365116'></ion-input>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size='3' class="inp">
+        寄件人地址:
+      </ion-col>
+      <ion-col size='9'>
+        <div class="kk">
+          <ion-input value='56165'></ion-input>
+        </div>
+      </ion-col>
+    </ion-row>
+    <mat-divider></mat-divider> -->
+    <ion-row class="inp">
+      <ion-col size='3'>
+        收件人:
+      </ion-col>
+      <ion-col size='9'>
+        {{ receiveName }}
+      </ion-col>
+    </ion-row>
+    <ion-row class="inp">
+      <ion-col size='3'>
+        收人电话:
+      </ion-col>
+      <ion-col size='9'>
+        {{ receivePhone }}
+      </ion-col>
+    </ion-row>
+    <ion-row class="inp">
+      <ion-col size='3'>
+        收件人地址:
+      </ion-col>
+      <ion-col size='9'>
+        {{ receiveProvince }}-{{ receiveCity }}-{{ receiveArea }}-{{ receiveDetail }}
+      </ion-col>
+    </ion-row>
+    <mat-divider></mat-divider>
+    <!-- <ion-row>
+      <ion-col size='3' class="com">
+        快递公司:
+      </ion-col>
+      <ion-col size='9'>
+        <ion-select [(ngModel)]="selecText" cancelText="取消" okText="确定!">
+          <ion-select-option *ngFor="let item of express;let i=index"
+            placeholder="请选择快递">{{ item.Name }}</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row> -->
+    <ion-row>
+      <ion-col size='3' class="inp">
+        快递单号:
+      </ion-col>
+      <ion-col size='9'>
+        <div class="kk">
+          <ion-input value='' placeholder="请输入快递单号" [(ngModel)]="expressNumber"></ion-input>
+        </div>
+      </ion-col>
+    </ion-row>
+    <div text-center class="send_btn">
+      <!-- <ion-button color="success" (click)='dis()'>确定</ion-button> -->
+      <button mat-raised-button color="accent" (click)='sendOk()'>确定</button>
+      <button mat-raised-button (click)='sendCancel()'>取消</button>
+    </div>
+  </div>
+</ion-content>

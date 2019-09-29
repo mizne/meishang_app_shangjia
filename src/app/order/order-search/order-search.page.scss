@@ -1,0 +1,62 @@
+.head{
+   background: rgba(243,54,124,1);
+   color: white;
+   line-height: 54px;
+}
+.sys{
+   font-size: 16px;
+   font-weight: bold;
+   color: black;
+   margin: 3px 0;
+}
+.tool{
+  width: 100%;
+  height: 100%;
+   background: #F3367C;
+   
+}
+
+.type{
+   width: 16%;
+   position: absolute;
+   top: 45px;
+   right: 50px;
+   text-align: center;
+   z-index: 100;
+   background: white
+   
+}
+.sc-ion-segment-ios-h {
+   --background: transparent;
+   --background-hover: rgba(var(--ion-color-primary-rgb,56,128,255),0.1);
+   --background-activated: rgba(var(--ion-color-primary-rgb,56,128,255),0.16);
+   --background-checked: var(--ion-color-primary,pink);
+   --color: var(--ion-color-primary,pink);
+   --color-checked: var(--ion-color-primary-contrast,pink);
+  
+   --border-color: var(--ion-color-primary,pink);
+   --indicator-color: transparent;
+   z-index: 1000;
+}
+
+.order-card{
+   margin: 0px;
+}
+
+.mail{
+   color: rgba(102,102,102,1);
+   font-size: 12px;
+}
+.mail span{
+   margin-right: 8px;
+}
+.edit{
+   padding: 20px 0;
+}
+.goods-bg{
+   background: rgba(241,241,241,1);
+}
+.card{
+   margin: 10px 3px;
+}
+

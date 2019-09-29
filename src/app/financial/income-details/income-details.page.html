@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col (click)='back()'>
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}"
+          > 收入明细
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content>
+  <div class="card money-card">
+    <ion-row >
+      <ion-col size='3.8'>
+        时间
+      </ion-col>
+      <ion-col size='5.8'>
+        订单号
+      </ion-col>
+      <ion-col size='2.4' >
+        金额
+      </ion-col>
+    </ion-row>
+  </div>
+<div class="details-bg">
+  <ion-row *ngFor="let k of incomeArr" >
+    <ion-col size="3.8">
+     {{k?.CreatedAt}}
+    </ion-col>
+    <ion-col size="5.8">
+    {{k?.OrderNumber.RecordId}}
+    </ion-col>
+    <ion-col size="2.4">
+        {{k?.Value ? k?.Value:0}}
+    </ion-col>
+    
+  </ion-row>
+</div>
+  <div>
+
+  </div>
+</ion-content>

@@ -1,0 +1,71 @@
+.welcome-card ion-img {
+  max-height: 35vh;
+  overflow: hidden;
+}
+.name{
+  text-align: center;
+  font-size: 18px;
+  line-height: 16px
+}
+.store{
+  text-align: start;
+}
+.msg{
+  text-align: right;
+}
+.header{
+  background: #F4367C;
+  color: white;
+  font-size: 14px;
+}
+.ion-header{
+  background: #F4367C;
+
+}
+.turnover{
+  margin-top: -10%
+}
+div{
+  font-family: 'PingFang SC';
+}
+.word >p:first-child{
+  font-size: 14px;
+  font-weight: bold;
+}
+.word >p:nth-child(2){
+  font-size: 24px;
+  font-weight: bold;
+}
+.word{
+  padding: 10px;
+  position: relative;
+}
+.type div{
+  height: 30px;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+.bott{
+  padding: 15px 0;
+  color: rgb(236, 230, 230);
+}
+.refresh_btn {
+  position: absolute;
+  left: 19.8rem;
+  top: 0.7rem;
+  width: 0.9rem;
+  height: 0.9rem;
+}
+.bottom_version {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  text-align: center;
+  transform: translateX(-50%);
+  .version_style {
+    font-size: 0.8rem;
+    color: #a0a0a0;
+  }
+}

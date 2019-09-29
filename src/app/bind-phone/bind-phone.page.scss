@@ -1,0 +1,56 @@
+.header{
+    background: rgba(243,54,124,1);
+    color: white;
+    font-size: 16px;
+}
+.password{
+    color:rgba(153,153,153,1);
+    font-size: 16px;
+}
+.phone{
+    text-align: center;
+   padding: 4rem 0 2rem 0;
+    font-size: 26px;
+    
+}
+.inp{
+    padding: 10px 40px;
+    margin: 0 auto;
+    font-size: 16px;
+}
+.btn{
+    width: 278px;
+    height: 50px;
+    margin: 2rem auto  5rem;
+   background: #F3367C;
+    line-height: 50px;
+    font-size: 16px;
+    color:white;
+    text-align: center;
+    border-radius: 30px;
+   
+}
+.line>img{
+    width: 18px;
+}
+.policy>span{
+    color: rgba(255,62,189,1);
+}
+.policy{
+    padding-top: 40px;
+    text-align: center;
+    font-size: 12px;
+}
+.code{
+    line-height: 40px;
+    color: rgba(255,62,189,1);
+}
+.co{
+    width: 110px;
+    line-height: 38px;
+    background: white;
+    color: #F3367C;
+}
+ion-backdrop{
+    display: none;
+}  

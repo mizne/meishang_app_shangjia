@@ -1,0 +1,17 @@
+{
+  "name": "cordova-plugin-sxb",
+  "version": "1.0.0",
+  "description": "",
+  "cordova": {
+    "id": "cordova-plugin-sxb",
+    "platforms": [
+      "android"
+    ]
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

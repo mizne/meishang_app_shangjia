@@ -1,0 +1,276 @@
+.sys {
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  margin: 3px 0;
+}
+
+.tool {
+  width: 100%;
+  background: #F3367C;
+
+}
+
+.oper img {
+  display: inline-block;
+  width: 15px;
+}
+
+.less {
+  position: relative;
+}
+
+.oper {
+
+  margin-top: 11%;
+}
+
+.lesspic .less {
+  height: 100%;
+}
+
+
+.goodspic>img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+}
+
+.goodspic {
+  width: 60%;
+
+  text-align: center;
+ 
+}
+
+.goodspic .less-content{
+  height: 100%;
+}
+
+.descrip {
+  padding: 1px;
+}
+.less-icon{
+ height: 20%;
+
+}
+.descrip{
+ height: 80%;
+}
+.like{
+  margin-right: 69%;
+}
+
+
+
+
+.lv {
+  padding-top: 16px;
+}
+
+.sale-type {
+  font-size: 14px;
+  font-weight: bolder;
+}
+
+.type {
+  width: 16%;
+  position: absolute;
+  top: 45px;
+  right: 50px;
+  text-align: center;
+  z-index: 100;
+  background: white
+}
+
+
+
+.goods-card {
+  margin: 10px 2px;
+  cursor: pointer;
+  border-radius: 0;
+  position: relative;
+}
+
+
+// 商品分类
+.header {
+  background: rgba(243, 54, 124, 1);
+  color: white;
+  font-size: 16px;
+}
+
+.body-search {
+  margin-top: 45px;
+  width: 100%;
+  display: flex;
+  margin-left: 10px;
+  justify-content: center;
+  height: 30px;
+  ;
+
+  .btn-search {
+    width: 20%;
+    font-size: 16px;
+    color: #949492;
+    height: 18px;
+    ;
+  }
+}
+
+
+.body-categories {
+  display: flex;
+ 
+  width: 100%;
+
+
+  .body-left {
+    // border-right: 1px solid #949492;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    flex-direction: column;
+    font-size: 16px;
+
+    .cate-left {
+      background-color: #f7f7f7;
+      ;
+      width: 100%;
+      flex-direction: column;
+      display: flex;
+      padding-left: 20px;
+      padding-top: 10px;
+      // align-items: center;
+      // justify-content: center;
+      border-bottom: 1px solid #E8E8E8;
+      height: 80px;
+
+      .perStyle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+        color: #4D4C51; //黑色
+        // border-bottom: 1px solid #949492;
+      }
+
+      .perStyleActive {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+        color: #F3367C; //黑色
+        // border-bottom: 1px solid #F3367C;
+      }
+
+      .perStyleActive1 {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 80px;
+        color: #F3367C; //黑色
+        font-weight: 600;
+        // border-bottom: 1px solid #F3367C;
+      }
+    }
+
+    .cateLeftActive {
+      background-color: #fff;
+      width: 100%;
+      flex-direction: column;
+      display: flex;
+      padding-left: 20px;
+      padding-top: 10px;
+      // align-items: center;
+      // justify-content: center;
+      border-bottom: 1px solid #F3367C;
+      height: 80px;
+
+      .perStyle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+        color: #4D4C51; //黑色
+        // border-bottom: 1px solid #949492;
+      }
+
+      .perStyleActive {
+        display: flex;
+        //  display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        // justify-content: center;
+        // align-items: center;
+        height: 80px;
+        color: #F3367C; //黑色
+        // border-bottom: 1px solid #F3367C;
+      }
+    }
+
+
+
+
+    .per-category-active {
+      height: 80px;
+      background-color: #ffff;
+      color: #F3367C; //黑色
+      border-bottom: 1px solid #F3367C;
+
+    }
+
+
+  }
+
+  .body-right {
+    // display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 70%;
+    font-size: 16px;
+    color: #F3367C;
+
+    .title-right {
+      width: 100%;
+      padding: 5px;
+      color: #33342F;
+      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 15px;
+      border-bottom: 3px solid #f7f7f7;
+    }
+
+    .secondCate {
+
+      display: flex;
+      width: 30%;
+      float: left;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 10px;
+
+      .right-bottom {
+
+        font-size: 16px;
+        color: #33342F;
+
+      }
+
+      .right-top {
+
+        img {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,182 @@
+<ion-row class="head">
+
+
+  <ion-col size='1' (click)='back()'>
+    <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'middle'}">
+  </ion-col>
+
+  <ion-col size='9'>
+    <ion-searchbar placeholder="请输入订单号" color='light' [(ngModel)]="goodsName"></ion-searchbar>
+  </ion-col>
+
+  <ion-col size='2' (click)='search()'>
+    搜索
+  </ion-col>
+
+
+</ion-row>
+
+<ion-content padding>
+  <div *ngFor="let k of orderArr ; let i=index">
+    <div class="one" *ngIf="show">
+    </div>
+    <div class="card">
+      <ion-row>
+        <ion-col>
+          订单号：{{k.RecordId}}
+        </ion-col>
+        <ion-col text-right color='accent'>
+          <!-- {{changeState(k.state)}} -->
+          <span *ngIf="k.state=='402'">已关闭</span>
+          <span *ngIf="k.state=='401'">已成功</span>
+          <span *ngIf="k.state=='202'">已发货</span>
+          <span *ngIf="k.state=='301'||k.state=='302'||k.state=='303'||k.state=='311'||k.state=='312'||k.state=='313'||k.state=='321'||k.state=='322'||k.state=='323'">售后</span>
+          <span *ngIf="k.state=='201'">待发货</span>
+          <span *ngIf="k.state=='101'">待付款</span>
+        </ion-col>
+      </ion-row>
+      <mat-divider></mat-divider>
+      <ion-row class="goods-bg" (click)='toDetail(k.RecordId)'>
+        <ion-col size='3'>
+          <img src="https://img4.imgtn.bdimg.com/it/u=3129151839,3166971011&fm=26&gp=0.jpg" alt="">
+        </ion-col>
+        <ion-col size='6'>
+          <div>
+            {{k.OrderName}}
+          </div>
+          <p [ngStyle]="{fontSize: '12px',color:'rgba(153,153,153,1)'}">颜色：306</p>
+        </ion-col>
+        <ion-col size='3' text-right>
+          <div>
+            ￥{{orderPrice>0 ? orderPrice : 0}}
+          </div>
+          <div [ngStyle]="{fontSize: '12px',color:'rgba(153,153,153,1)'}">
+            ×1
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="mail">
+        <ion-col size='5'>
+          <img src="../../../assets/订单管理/快递.png" alt="" [ngStyle]="{width:'13.4px',margin:'0 6px'}">
+          <span>快递费：包邮</span>
+        </ion-col>
+        <ion-col size='7' text-right>
+          <span>共1件商品</span>
+
+          <span>合计：${{k.Sum}}</span>
+        </ion-col>
+      </ion-row>
+      <!-- <mat-divider></mat-divider> -->
+      <div class="edit" text-right>
+
+        <!-- <button mat-stroked-button [ngStyle]="{color: 'rgba(153,153,153,1)'}" (click)='logistic(k.RecordId)'
+          *ngIf="k.state=='401'||k.state=='402'||k.state=='202'">查看物流</button>
+
+        <button mat-stroked-button color="accent" [ngStyle]="{margin:'0 8px'}" (click)='editMoney()'
+          *ngIf="k.state=='101'">修改价格</button>
+        <button mat-stroked-button color="accent" [ngStyle]="{margin:'0 8px'}" (click)='send(k.RecordId)'
+          *ngIf="k.state=='201'">我要发货</button>
+
+        <button mat-stroked-button color="accent" [ngStyle]="{margin:'0 8px'}" (click)='view(k.RecordId)'
+          *ngIf="k.state=='401'">查看评价</button>
+        <button mat-stroked-button color="accent" [ngStyle]="{margin:'0 8px'}" (click)='view(k.RecordId)'
+          *ngIf="k.state=='301'||k.state=='302'||k.state=='303'||k.state=='311'||k.state=='312'||k.state=='313'||k.state=='321'||k.state=='322'||k.state=='323'">售后详情</button> -->
+        <!-- <button mat-stroked-button color="accent" [ngStyle]="{margin:'0 8px'}" (click)='dis()' *ngIf="k.state=='402'">删除</button> -->
+        <!-- <button mat-stroked-button color="accent" [ngStyle]="{margin:'0 8px'}" (click)='sure(k.RecordId)'
+          *ngIf="k.state=='301'||k.state=='302'||k.state=='303'||k.state=='311'||k.state=='312'||k.state=='313'||k.state=='321'||k.state=='322'||k.state=='323'">确认退款</button> -->
+
+
+        <div class="two" *ngIf="show" [ngStyle]="{textAlign: 'left'}">
+          <ion-row>
+            <ion-col size='3' class="inp">
+              寄件人:
+            </ion-col>
+            <ion-col size='9'>
+              <div class="kk">
+                <ion-input value='3132'></ion-input>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size='3' class="inp">
+              寄件人电话:
+            </ion-col>
+            <ion-col size='9'>
+
+              <div class="kk">
+                <ion-input value='365116'></ion-input>
+              </div>
+
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size='3' class="inp">
+              寄件人地址:
+            </ion-col>
+            <ion-col size='9'>
+              <div class="kk">
+                <ion-input value='56165'></ion-input>
+              </div>
+            </ion-col>
+          </ion-row>
+          <mat-divider></mat-divider>
+          <ion-row class="inp">
+            <ion-col size='3'>
+              收件人人:
+            </ion-col>
+            <ion-col size='9'>
+              什么
+            </ion-col>
+          </ion-row>
+          <ion-row class="inp">
+            <ion-col size='3'>
+              收人电话:
+            </ion-col>
+            <ion-col size='9'>
+              2165635496
+            </ion-col>
+          </ion-row>
+          <ion-row class="inp">
+            <ion-col size='3'>
+              收件人地址:
+            </ion-col>
+            <ion-col size='9'>
+              南京市
+            </ion-col>
+          </ion-row>
+          <mat-divider></mat-divider>
+          <ion-row>
+            <ion-col size='3' class="com">
+              快递公司:
+            </ion-col>
+            <ion-col size='9'>
+              <ion-select [(ngModel)]="selecText" cancelText="取消" okText="确定!">
+
+                <ion-select-option [value]="item.RecordId" *ngFor="let item of express;let i=index" placeholder="请选择快递">
+                  {{item.Name}}</ion-select-option>
+              </ion-select>
+
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size='3' class="inp">
+              快递单号:
+            </ion-col>
+            <ion-col size='9'>
+              <div class="kk">
+                <ion-input value='' placeholder="请输入快递单号"></ion-input>
+              </div>
+            </ion-col>
+          </ion-row>
+
+          <div text-center>
+            <!-- <ion-button color="success" (click)='dis()'>确定</ion-button> -->
+            <button mat-raised-button color="accent" (click)='dis()'>确定</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

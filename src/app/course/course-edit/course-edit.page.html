@@ -1,0 +1,183 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col (click)='back()'>
+        <img src="../../assets/首页/back.png" alt=""
+          [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}">课程详情
+      </ion-col>
+      <ion-col text-right (click)='editCourse()'>
+        完成
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+<ion-content>
+  <div class="release">
+    <div>
+      <mat-divider></mat-divider>
+      <div class="course_state" *ngIf="courseState === '2'" [ngClass]="{'course_state_full': checkMoreFlag === true}">
+        <div class="course_title">
+          课程审核未通过，请重新提交！
+        </div>
+        <div class="course_reason">
+          拒绝原因：{{ courseApproveReason }}
+        </div>
+      </div>
+      <div class="check_more" (click)="checkMoreInfo()" *ngIf="courseState === '2'">
+        {{ changeBtn() }}
+        <ion-icon name="arrow-dropdown" class="check_icon" *ngIf="!checkMoreFlag"></ion-icon>
+        <ion-icon name="arrow-dropup" class="check_icon" *ngIf="checkMoreFlag"></ion-icon>
+      </div>
+      <ion-row>
+        <ion-col size="3.5" class="course">
+          课程标题
+        </ion-col>
+        <ion-col size="8.5">
+          <ion-input type="text" placeholder="输入课程标题" [(ngModel)]="courseTt" value='{{goodsList?.CourseTitle}}'>
+          </ion-input>
+        </ion-col>
+      </ion-row>
+      <mat-divider></mat-divider>
+      <ion-row>
+        <ion-col size="3.5" class="course">
+          课程单价
+        </ion-col>
+        <ion-col size="8.5">
+          <ion-input type="number" placeholder="输入课程单价" [(ngModel)]="courseMoney" value='{{goodsList?.ProductPrice}}'>
+          </ion-input>
+        </ion-col>
+      </ion-row>
+      <mat-divider></mat-divider>
+    </div>
+    <div>
+      <ion-row>
+        <ion-col size="3.5" class="course">
+          课程封面
+        </ion-col>
+        <ion-col size="8.5">
+          <div class="uploadcover">
+            <img [src]='backCover' alt="" [ngStyle]="{width:'auto',height:'auto',maxWidth:'100%',maxHeight:'100%'}">
+
+          </div>
+          <div>
+            <!-- <button mat-raised-button >修改图片</button> -->
+            <span class="file1" (click)="presentActionSheet()">修改图片</span>
+          </div>
+
+        </ion-col>
+      </ion-row>
+      <mat-divider></mat-divider>
+    </div>
+    <div>
+      <ion-row>
+        <ion-col size="3.5" class="course">
+          课程介绍
+        </ion-col>
+        <ion-col size="8.5">
+          <!-- <ion-input type="text" placeholder="课程介绍" [(ngModel)]="courseIntroduce" maxlength='18'></ion-input> -->
+
+          <div class="introduceC">
+            <ion-textarea rows="4" cols="15" placeholder="请输入课程介绍" [(ngModel)]="courseIntroduce" maxlength='40'
+              value='{{goodsList?.CourseIntroduction}}'></ion-textarea>
+          </div>
+        </ion-col>
+      </ion-row>
+      <mat-divider></mat-divider>
+    </div>
+
+    <h5>课程目录:</h5>
+    <div>
+
+      <div *ngFor="let item of arr;let i =index">
+
+        <div>
+          <div class="uls">
+            <img src="../../../assets/商品管理/减少.png" alt="" (click)='gotodelete(i)' class="pic">
+            <div>
+              <mat-divider></mat-divider>
+              <ion-row>
+                <ion-col size="3.5" class="course">
+                  第{{i+1}}节
+                </ion-col>
+                <ion-col size="8.5">
+                  <ion-input type="text" placeholder="输入标题" [(ngModel)]="item.title">
+                  </ion-input>
+                </ion-col>
+              </ion-row>
+              <mat-divider></mat-divider>
+            </div>
+
+            <!-- <div>
+              <ion-row>
+                <ion-col size="3.5" class="course">
+                  课程封面
+                </ion-col>
+                <ion-col size="8.5">
+
+                  <div class="uploadcover">
+                    <img [src]='item.image' alt="" *ngIf="item.image;else cover"
+                      (click)="presentActionSheetChild(i)" class="cover">
+                    <ng-template #cover>
+                      <div (click)="presentActionSheetChild(i)">上传封面</div>
+                    </ng-template>
+                  </div>
+
+                </ion-col>
+              </ion-row>
+              <mat-divider></mat-divider>
+            </div> -->
+            <div>
+              <mat-divider></mat-divider>
+              <ion-row>
+                <ion-col size="3.5" class="course">
+                  课程视频
+                </ion-col>
+                <ion-col size="8.5" class="vid">
+                  <div class="uploadcover" [ngStyle]="{height:'160px'}">
+                    <video style="width:100%;height:100%;" [src]='item.video' controls #media
+                      id="singleVideo" preload="auto" autoplay="autoplay"></video>
+                  </div>
+                  <!-- <p text-left [ngStyle]="{height: '41px'}"> <button mat-raised-button>上传视频</button></p>
+                  <ion-input type="file" (change)="fileChange($event,i)" placeholder="上传视频" class="put"
+                    accept="video/*"></ion-input> -->
+                  <a href="javascript:;" class="file1">选择文件
+                    <input type="file" name="" id="feature" accept="video/*" (change)="fileChange($event,i)">
+                  </a>
+                  <div class="progress" *ngIf="isUplodaing">
+                    <div class="progress1">上传进度：{{progress1}}%</div>
+                    <div class="body-progress">
+                      <ion-progress-bar class="progress2" color="primary" [value]="progress"></ion-progress-bar>
+                      <div class="btn-cancel" (click)="goToCancel()">取消上传</div>
+                    </div>
+                  </div>
+                </ion-col>
+              </ion-row>
+              <mat-divider></mat-divider>
+            </div>
+            <div>
+              <ion-row>
+                <ion-col size="3.5" class="course">
+                  课程介绍
+                </ion-col>
+                <ion-col size="8.5">
+                  <!-- <ion-input type="text" placeholder="输入课程描述" [(ngModel)]="item.introduce" maxlength='80'></ion-input> -->
+                  <ion-textarea rows="4" cols="15" placeholder="输入课程描述"
+                    [(ngModel)]="item.introduce" maxlength='40' type='text'
+                    value="输入课程描述"></ion-textarea>
+                </ion-col>
+              </ion-row>
+              <mat-divider></mat-divider>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div [ngStyle]="{margin:'17px'}" (click)="gotoadd()">
+      <button mat-raised-button color="accent">添加章节</button>
+    </div>
+  </div>
+
+
+
+</ion-content>

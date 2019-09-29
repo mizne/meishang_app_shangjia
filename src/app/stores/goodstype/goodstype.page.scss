@@ -1,0 +1,62 @@
+.logo{
+    text-align: center;
+    background:white;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    z-index: 100;
+    position: absolute;
+    top: 38%;
+    left: 0;
+    right: 0;
+    margin:0  auto;
+    line-height: 80px;
+    background: rgb(230, 221, 221)
+}
+
+.header{
+    background: #F4367C;
+    color: white;
+    font-size: 14px;
+  }
+  .storeName{
+      font-size: 16px;
+      
+  }
+  .lt{
+      font-size: 20px;
+      
+  }
+  .pic{
+      position: relative;
+     
+  }
+  .sm{
+      margin-top: 55px;
+  }
+  .introduce{
+      width: 60%;
+      margin: 0 auto;
+      padding: 10px;
+  }
+  .price{
+      margin: 5px;
+      float: left;
+      width: 47%;
+  }
+  .rice{
+      margin: 5px;
+      float: left;
+      width: 46%;
+  }
+  #type  .mat-expansion-panel .mat-expansion-panel-body {
+    padding: 0 11px 16px;
+    z-index: 1000;
+} 
+.scard{
+    border-radius: 0;
+    margin: 5px 0;
+}
+
+  
+

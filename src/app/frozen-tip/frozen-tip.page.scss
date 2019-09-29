@@ -1,0 +1,30 @@
+.header{
+    background: rgba(243,54,124,1);
+    color: white;
+    font-size: 16px;
+}
+.frozen_body {
+    text-align: center;
+    .frozen_top {
+        img {
+            width: 10rem;
+            height: 10rem;
+            margin-top: 5rem;
+        }
+    }
+    .content {
+        font-size: 16px;
+        margin-top: 1rem;
+        color: gray;
+    }
+    .frozen_bottom {
+        margin-top: 5rem;
+        .frozen_btn {
+            display: inline-block;
+            padding: 0.4rem 1.5rem;
+            border-radius: 0.2rem;
+            background: rgba(243,54,124,1);
+            color: white;
+        }
+    }
+}

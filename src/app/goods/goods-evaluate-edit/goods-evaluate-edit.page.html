@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar color="pink"  (click)="back()">
+    <img src="../../assets/首页/back.png" alt="" [ngStyle]="{ width: '12px', verticalAlign: 'bottom' ,marginRight:'8px'}"
+      /> 评价详情
+   
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!-- <div class="ul">
+    <span>全部 {{type}}</span>
+    <span>有图</span>
+    <span>美图12465</span>
+    <span>全部</span>
+    <span>全部</span>
+  </div> -->
+
+  <div class="evaluate" *ngFor="let k of messageGoods">
+  
+    <div >
+       <ion-row>
+        <ion-col size='2.17' >
+            <img [src]='k?.Logo'  class="logo" >
+        </ion-col>
+        <ion-col size="9.83">
+            <div >
+                <div class="name">{{k?.Name}}</div>
+                <p class="type">颜色分类:超软-黑白色</p>
+            </div>
+        </ion-col>
+       </ion-row>
+      <div class="dian" >
+          <span [matMenuTriggerFor]="menu">...</span>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)='editMsg(k?.RecordId)'>回复 </button>
+              <button mat-menu-item (click)='deleteMsg(k?.RecordId)'>删除</button>
+            </mat-menu>
+        </div>
+    </div>
+
+    <div class="eva">
+      <ion-row class="content"><ion-col>{{k?.Content}}</ion-col></ion-row>
+       <!-- 留言回复 -->
+       <ion-row >
+        <ion-col>
+           <div *ngFor="let s of k?.VisitInfoMessageComment;let v=index">
+            <span class="person"> {{s?.Name}}</span> 回复 <span class="person">{{k?.Name}}</span>: <span>{{s?.Content}}</span>
+           </div>
+        </ion-col>
+       </ion-row>
+      <ion-row class="type">
+        <ion-col>
+          浏览量
+        </ion-col>
+        <ion-col text-right>
+          <span [ngStyle]="{ margin: '0 10px' }">
+            <i class="icon ion-chatbox"></i> 评论</span>
+          <span><i class="icon ion-thumbsup"></i> 喜欢</span>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+
+</ion-content>
+
+<ion-footer *ngIf="isreply"  class="rep">
+    <ion-row>
+      <ion-col size="9">
+        <div class="inp">
+            <ion-input placeholder="留言回复" [(ngModel)]="replyMsg" id="inpValue" (ionBlur)="blurInput()"></ion-input>
+        </div>
+      </ion-col>
+      <ion-col size='3' text-right >
+        <button mat-raised-button  color="accent" [ngStyle]="{borderRadius:'30px'}" (click)='se()'>发送</button>
+      </ion-col>
+    </ion-row>
+  </ion-footer>

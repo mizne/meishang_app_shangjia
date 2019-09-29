@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-toolbar color="pink">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="store">
+          <div class="storeName"><img src="../../assets/首页/back.png" alt="" *ngIf="isWrite" (click)='back()'
+              [ngStyle]="{width:'12px',marginRight:'8px',verticalAlign:'bottom'}"> 店铺认证</div>
+        </ion-col>
+        <ion-col>
+          <!-- <div class="" text-right>保存</div> -->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <mat-divider></mat-divider>
+  <ion-row>
+    <ion-col size='3' class="coll">
+      <ion-label>法人姓名</ion-label>
+    </ion-col>
+    <ion-col size='9'>
+      <ion-input placeholder="中国大陆身份证上的名字" [(ngModel)]="IDName" maxlength='20' disabled={{isWrite}}></ion-input>
+    </ion-col>
+  </ion-row>
+  <mat-divider></mat-divider>
+  <ion-row>
+    <ion-col size='3' class="coll">
+      <ion-label>联系方式</ion-label>
+    </ion-col>
+    <ion-col size='9'>
+      <ion-input placeholder="请输入您的手机号码" [(ngModel)]="IDPhone" maxlength='20' disabled={{isWrite}}></ion-input>
+    </ion-col>
+  </ion-row>
+  <mat-divider></mat-divider>
+  <ion-row>
+    <ion-col size='3' class="coll">
+      <ion-label>证件号码</ion-label>
+    </ion-col>
+    <ion-col size='9'>
+      <ion-input placeholder="请输入您的身份证号码" required maxlength='18' [(ngModel)]="IDNum" type='text' disabled={{isWrite}}
+        onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+      </ion-input>
+
+      <!-- <ion-input  placeholder="请输入您的身份证号码" type="number"  required    maxlength='18'  [(ngModel)]="IDNum" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"></ion-input> -->
+    </ion-col>
+  </ion-row>
+  <mat-divider></mat-divider>
+
+  <ion-row>
+    <ion-col size='3' class="coll">
+      <ion-label>营业执照号</ion-label>
+    </ion-col>
+    <ion-col size='9'>
+      <ion-input placeholder="营业执照上的15位号码" type='text' required maxlength='15' [(ngModel)]="license" disabled={{isWrite}}
+        onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+      </ion-input>
+
+      <!-- <ion-input placeholder="营业执照上的15位号码" [(ngModel)]="tel"   required  minlength='11' maxlength='11' type='number'></ion-input> -->
+    </ion-col>
+  </ion-row>
+  <mat-divider></mat-divider>
+
+  <ion-row>
+    <ion-col size='3' class="co">
+      营业执照
+    </ion-col>
+    <ion-col size='9'>
+      <div class="license">
+        <ng-template #elseBlock> <span (click)='busi()'>{{ checkImgState1(state) }}</span></ng-template>
+        <img [src]='img' alt="" [ngStyle]="{width:auto,height:auto,maxHeight:'100%',maxWidth:'100%'}"
+          *ngIf="img;else elseBlock" (click)='busi()'>
+      </div>
+
+    </ion-col>
+  </ion-row>
+
+  <mat-divider></mat-divider>
+
+  <ion-row>
+    <ion-col size='3' class="co">
+      法人身份证
+    </ion-col>
+    <ion-col size='9'>
+      <div class="license">
+        <ng-template #else1> <span (click)='id1()'>{{ checkImgState2(state) }}</span></ng-template>
+        <img [src]='img1' alt="" [ngStyle]="{width:auto,height:auto,maxHeight:'100%',maxWidth:'100%'}"
+          *ngIf="img1;else else1" (click)='id1()'>
+      </div>
+
+      <div class="license">
+        <ng-template #else2> <span (click)='id2()'>{{ checkImgState3(state) }}</span></ng-template>
+        <img [src]='img2' alt="" [ngStyle]="{width:auto,height:auto,maxHeight:'100%',maxWidth:'100%'}"
+          *ngIf="img2;else else2" (click)='id2()'>
+      </div>
+    </ion-col>
+  </ion-row>
+  <mat-divider></mat-divider>
+
+  <div style="text-align: center;">
+    <span [ngStyle]="{color:'#F4367C'}" (click)='save()' *ngIf="isShow" class="confirmBtn">确认并提交</span>
+    <div text-center [ngStyle]="{color:'rgba(204,204,204,1)',fontSize:'12px'}">{{ checkState(state) }}</div>
+  </div>
+
+</ion-content>

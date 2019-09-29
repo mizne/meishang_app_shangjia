@@ -1,0 +1,66 @@
+
+.header{
+    background: #F4367C;
+    color: white;
+    font-size: 14px;
+  }
+  .storeName{
+      font-size: 16px;
+      
+  }
+  .msg{
+      color:rgba(153,153,153,1);
+      font-size: 14px;
+  }
+  .wx-content{
+    background: #F3F3F3;
+    height: 100%;
+    width: 100%;
+}
+.wx-word{
+    background: white;
+   
+}
+.license{
+    width:120px;
+    height: 80px;
+    border: 0.1px dotted rgb(233, 228, 228);
+    text-align: center;
+    line-height: 80px;
+    color: rgba(204,204,204,1);
+    display: inline-block;
+    margin-right: 10px;
+    
+}
+.license1{
+    width:120px;
+    height: 80px;
+    border: 0.5px dotted rgba(204,204,204,1);
+    text-align: center;
+    line-height: 60px;
+    color: rgba(204,204,204,1);
+    display: inline-block;
+    margin-right: 10px;
+    
+}
+.coll{
+    line-height: 40px;
+    text-align: left;
+    padding-left: 10px;
+    font-weight: bolder;
+}
+.co{
+    
+    text-align: left;
+    padding-left: 10px;
+    font-weight: bolder;
+}
+.confirmBtn {
+    width: 80%;
+    display: inline-block;
+    background: white;
+    border: 1px solid #F4367C;
+    border-radius: 0.2rem;
+    padding: 0.4rem;
+    margin-top: 1rem;
+}

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col (click)='back()'>
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}">
+        营销活动
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-header>
+<ion-content>
+  <ul class="uls">
+    <li *ngFor="let k of arr">
+      <div (click)='choice(k.RecordId)'>
+        <img src="../../../assets/首页/discount.png" alt="">
+        <span>{{k?.name}}</span>
+      </div>
+    </li>
+  </ul>
+
+</ion-content>

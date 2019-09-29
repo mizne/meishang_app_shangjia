@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col  (click)='back()'>
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}"
+         > 财务管理
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+<ion-content>
+  <div class="card money-card">
+    <p>可提现金额</p>
+    <ion-row>
+      <ion-col>
+        ￥<span class="how">{{ accountAmountForGet }}</span>
+      </ion-col>
+      <ion-col text-right (click)='cash'>
+       <span (click)='cash()'>
+        提现 <img src="../../../assets/财务管理/right.png" alt="" class="right">
+       </span>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div class="card money-card">
+    <ion-row (click)='beSettle()'>
+      <ion-col>
+        已结算收入
+      </ion-col>
+      <ion-col text-right >
+        <span>{{ haveBalanceValue }}</span> <img src="../../../assets/财务管理/right.png" alt="" class="right">
+      </ion-col>
+    </ion-row>
+    <mat-divider class="line"></mat-divider>
+    <ion-row (click)='noSettle()'>
+      <ion-col>
+        未结算收入
+      </ion-col>
+      <ion-col text-right >
+        <span>{{ noBalanceValue }}</span> <img src="../../../assets/财务管理/right.png" alt="" class="right">
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div class="card money-card">
+    <ion-row  (click)='income()'>
+      <ion-col>
+        收入明细
+      </ion-col>
+      <ion-col text-right>
+        <img src="../../../assets/财务管理/right.png" alt="" class="right">
+      </ion-col>
+    </ion-row>
+    <mat-divider class="line"></mat-divider>
+    <ion-row (click)='record()'>
+      <ion-col>
+        提现记录
+      </ion-col>
+      <ion-col text-right >
+        <img src="../../../assets/财务管理/right.png" alt="" class="right">
+      </ion-col>
+    </ion-row>
+  </div>
+
+</ion-content>

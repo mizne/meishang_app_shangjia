@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="pink">
+    <ion-row>
+      <ion-col class="title" (click)='back()'>
+       <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}" >
+      
+      银行卡
+      </ion-col>
+      
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="list">
+    <label class="item item-input">
+      <span class="input-label" >银行</span>
+      <input type="text" placeholder="银行">
+    </label>
+    <label class="item item-input">
+      <span class="input-label" >银行卡卡号</span>
+      <input type="password" placeholder="卡号">
+    </label>
+    <label class="item item-input">
+      <span class="input-label" >姓名</span>
+      <input type="password" placeholder="填写姓名">
+    </label>
+  </div>
+
+  <div class="list">
+    <label class="item item-input">
+      <span class="input-label" >银行</span>
+      <input type="text" placeholder="填写银行预留手机号">
+      
+    </label>
+    <label class="item item-input">
+      <span class="input-label" >验证码</span>
+      <input type="password" placeholder="请输入验证码">
+
+    </label>
+    
+  </div>
+  <div class="padding">
+    <button class="button button-block pink">完成</button>
+    
+  </div>
+</ion-content>

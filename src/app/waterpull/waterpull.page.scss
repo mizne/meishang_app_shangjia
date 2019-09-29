@@ -1,0 +1,85 @@
+// .masonry {
+//     -moz-column-count: 2;
+//     /* Firefox */
+//     -webkit-column-count: 2;
+//     /* Safari 和 Chrome */
+//     column-count: 2;
+//     -moz-column-gap: 1em;
+//     -webkit-column-gap: 1em;
+//     column-gap: 1em;
+//     width: 99%;
+//     margin: 1em auto;
+// }
+
+// .item {
+// padding: 3px;
+//     margin-bottom: 1em;
+//     width: 100%;
+//     height: auto;
+//     word-wrap:break-word;
+ 
+//     -webkit-column-break-inside: avoid;
+//     break-inside: avoid;
+//       white-space: normal ; 
+    
+// }
+.container {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: space-between;
+    //容器必须有固定高度且高度大于最高的列高
+    height: 1660px;
+    border-radius: 3px;
+    padding: 20px;
+    width: 100%;
+    counter-reset: items;
+    box-sizing: border-box;
+}
+
+.item {
+    width: 32%;
+    margin-bottom: 2%;
+    border-radius: 3px;
+    background-color: #a1cbfa;
+    border: 1px solid #4290e2;
+    color: #fff;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+/* 仅用于打印数字 */
+.item::before {
+    counter-increment: items;
+    content: counter(items);
+}
+
+/* 将内容块重排为3列 */
+.item:nth-child(2n+1) {
+    order: 1;
+}
+
+// .item:nth-child(2n+2) {
+//     order: 2;
+// }
+
+.item:nth-child(2n) {
+    order: 2;
+}
+
+/* 强制换列 */
+.container::before,
+.container::after {
+    content: "";
+    flex-basis: 100%;
+    width: 0;
+    order: 1;
+}
+
+.left_box {
+    width: 50%;
+    display: inline-block;
+}
+.right_box {
+    width: 50%;
+    display: inline-block;
+}

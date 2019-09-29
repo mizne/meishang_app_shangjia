@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>waterpull</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <div id="container">
+        <div class="box" *ngFor="let image of img_data">
+            <div class="box_img">
+               <img [src]='image.src' alt="">
+            </div>
+        </div>
+    </div>
+   -->
+
+
+  <!-- <div class="masonry">
+    <div class="item" *ngFor="let image of img_data">
+      <div class="item_content content-lar"> 
+        <img [src]='image.src' alt=""> 
+
+
+   
+      </div>
+    </div>
+  </div> -->
+  <!-- <div class="container">
+		<div class="item" style="height: 140px"></div>
+		<div class="item" style="height: 190px"></div>
+		<div class="item" style="height: 170px"></div>
+		<div class="item" style="height: 120px"></div>
+		<div class="item" style="height: 160px"></div>
+		<div class="item" style="height: 180px"></div>
+		<div class="item" style="height: 140px"></div>
+		<div class="item" style="height: 150px"></div>
+		<div class="item" style="height: 170px"></div>
+		<div class="item" style="height: 170px"></div>
+		<div class="item" style="height: 80px"></div>
+		<div class="item" style="height: 100px"></div>
+		<div class="item" style="height: 270px"></div>
+		<div class="item" style="height: 170px"></div>
+  </div> -->
+  <div class="left_box" id="leftBox" name="leftBox">
+    <div *ngFor="let item of leftList;let i=index">
+      <img [src]="item.src" alt="">
+    </div>
+  </div>
+  <div class="right_box" id="rightBox" name="rightBox">
+    <div *ngFor="let item of rightList;let i=index">
+      <img [src]="item.src" alt="">
+    </div>
+  </div>
+</ion-content>

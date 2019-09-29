@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col  (click)='back()'>
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}"
+         > 提现账户
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content>
+  <!-- <div class="card money-card" [ngStyle]="{marginTop:'10px'}">
+    <ion-row>
+      <ion-col class="bank">
+        银行卡
+      </ion-col>
+      <ion-col text-right>
+        <span>未设置</span><img src="../../../assets/财务管理/right.png" alt="">
+      </ion-col>
+    </ion-row>
+  </div> -->
+
+  <div class="card money-card">
+    <ion-row>
+      <ion-col class="bank">
+        支付宝
+      </ion-col>
+      <ion-col text-right (click)='ali()'>
+      <ng-template  #al> <span>未设置</span></ng-template> <span *ngIf="alip;else al">设置</span><img src="../../../assets/财务管理/right.png" alt="">
+      </ion-col>
+    </ion-row>
+  </div>
+  <div class="card money-card">
+    <ion-row>
+      <ion-col class="bank">
+        微信
+      </ion-col>
+      <ion-col text-right (click)="bindWeChat()">
+        <span [ngClass]="{bindWeChatCss: isBindWeChat == true}">{{nickName}}</span><img src="../../../assets/财务管理/right.png" alt="">
+      </ion-col>
+    </ion-row>
+  </div>
+
+ <!-- <div text-center>
+   <button mat-raised-button color='accent' [ngStyle]="{width: '140px'}">添加</button>
+ </div>
+   -->
+</ion-content>

@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col (click)='back()'>
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}">
+        评论回复
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content padding>
+  <div class="com_container">
+    <div class="bofy-none" *ngIf="!isComment">
+      <div class="img-none">
+        <img src="../../assets/订单管理/none1.jpg" alt="">
+      </div>
+      <div class="tips-none">暂无更多评论</div>
+    </div>
+    <div class="comments-body" *ngIf="isComment">
+      <div class="all_comments">
+        <span>回复({{commentNum}})</span>
+      </div>
+      <div class="comm-top" *ngFor="let item of commentList;let i=index">
+        <div class="comm-left">
+          <div class="logo-comm">
+            <img [src]="item.Logo || '../assets/img/sakura.jpg'" alt="">
+          </div>
+          <div class="nick-comm">{{ item.Name || '暂无昵称' }}</div>
+          <span class="comm_del" (click)="deleteComment(item.RecordId)" *ngIf="item.ExhibitorId === checkExhibitorId">删除</span>
+        </div>
+        <div class="comm-right"> {{ item.Content }}</div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer class="rep">
+  <ion-row>
+    <ion-col size="9">
+      <div class="inp">
+        <ion-input placeholder="请输入回复内容" [(ngModel)]="commentsInfo"></ion-input>
+      </div>
+    </ion-col>
+    <ion-col size='3' text-right>
+      <div class="btn-send">
+        <button style="border:none" class="to-send" color="primary" (click)="sendComments()">发送</button>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-footer>

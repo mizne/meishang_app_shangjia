@@ -1,0 +1,304 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col (click)='back()'>
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}">
+        数据统计
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-header>
+<ion-content>
+
+  <mat-tab-group>
+    <mat-tab>
+      <ng-template mat-tab-label size='2'>
+        课程发布
+      </ng-template>
+      <div echarts [options]="options1" id="main" tyle="width: 100%;height:200px;padding-top:50px;"></div>
+
+      <div>
+        <div class="card classes">
+          <ion-row>
+            <ion-col text-center>
+              <p class="num">0</p>
+              <p><span [ngStyle]="{color:'rgba(218,77,129,1)'}">·</span> 课程发布数量</p>
+            </ion-col>
+            <ion-col text-center>
+              <p class="num">0</p>
+              <p><span [ngStyle]="{color:'rgba(29,32,136,1)'}">·</span> 课程浏览人数</p>
+            </ion-col>
+          </ion-row>
+        </div>
+        <ion-row>
+          <ion-col class="sevenDay">
+            7天页面访问排行榜
+          </ion-col>
+          <ion-col class="yesterday" text-right>
+            排行榜数据截止到昨日
+          </ion-col>
+        </ion-row>
+        <div class="list">
+          <div class="item ">
+            <ion-row>
+              <ion-col size='1.5' class="order">
+                1
+              </ion-col>
+              <ion-col size='10.5' class="className">
+                课程名称课程名称课程名称课程
+                <p>7天访客2人</p>
+              </ion-col>
+            </ion-row>
+          </div>
+          <div class="item ">
+            <ion-row>
+              <ion-col size='1.5' class="order">
+                2
+              </ion-col>
+              <ion-col size='10.5' class="className">
+                课程名称课程名称课程名称课程
+                <p>7天访客2人</p>
+              </ion-col>
+            </ion-row>
+          </div>
+          <div class="item ">
+            <ion-row>
+              <ion-col size='1.5' class="order">
+                3
+              </ion-col>
+              <ion-col size='10.5' class="className">
+                课程名称课程名称课程名称课程
+                <p>7天访客2人</p>
+              </ion-col>
+            </ion-row>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label size='2'>
+        课程销售
+      </ng-template>
+      <div echarts [options]="options2" id="main" tyle="width: 100%;height:200px;padding-top:50px;"></div>
+
+      <div>
+        <div class="card classes">
+          <ion-row>
+            <ion-col text-center>
+              <p class="num">0</p>
+              <p><span [ngStyle]="{color:'rgba(218,77,129,1)'}">·</span> 课程发布数量</p>
+            </ion-col>
+            <ion-col text-center>
+              <p class="num">0</p>
+              <p><span [ngStyle]="{color:'rgba(29,32,136,1)'}">·</span> 课程浏览人数</p>
+            </ion-col>
+          </ion-row>
+        </div>
+        <ion-row>
+          <ion-col class="sevenDay">
+            7天页面访问排行榜
+          </ion-col>
+          <ion-col class="yesterday" text-right>
+            排行榜数据截止到昨日
+          </ion-col>
+        </ion-row>
+        <div class="list">
+          <div class="item ">
+            <ion-row>
+              <ion-col size='1.5' class="order">
+                1
+              </ion-col>
+              <ion-col size='10.5' class="className">
+                课程名称课程名称课程名称课程
+                <p>7天访客2人</p>
+              </ion-col>
+            </ion-row>
+          </div>
+          <div class="item ">
+            <ion-row>
+              <ion-col size='1.5' class="order">
+                2
+              </ion-col>
+              <ion-col size='10.5' class="className">
+                课程名称课程名称课程名称课程
+                <p>7天访客2人</p>
+              </ion-col>
+            </ion-row>
+          </div>
+          <div class="item ">
+            <ion-row>
+              <ion-col size='1.5' class="order">
+                3
+              </ion-col>
+              <ion-col size='10.5' class="className">
+                课程名称课程名称课程名称课程
+                <p>7天访客2人</p>
+              </ion-col>
+            </ion-row>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label size='2'>
+        商品销售
+      </ng-template>
+      <div echarts [options]="options4" id="main" tyle="width: 100%;height:200px;padding-top:50px;"></div>
+
+      <div>
+        <div class="card classes">
+          <ion-row>
+            <ion-col text-center>
+              <p class="num">0</p>
+              <p><span [ngStyle]="{color:'rgba(218,77,129,1)'}">·</span> 商品销售数量</p>
+            </ion-col>
+            <ion-col text-center>
+              <p class="num">0</p>
+              <p><span [ngStyle]="{color:'rgba(29,32,136,1)'}">·</span> 商品浏览人数</p>
+            </ion-col>
+          </ion-row>
+        </div>
+        <ion-row>
+          <ion-col class="sevenDay">
+            7天页面访问排行榜
+          </ion-col>
+          <ion-col class="yesterday" text-right>
+            排行榜数据截止到昨日
+          </ion-col>
+        </ion-row>
+        <div class="list">
+          <div class="item ">
+            <ion-row>
+              <ion-col size='1.5' class="order">
+                1
+              </ion-col>
+              <ion-col size='10.5' class="className">
+                商品名称
+                <p>7天访客2人</p>
+              </ion-col>
+            </ion-row>
+          </div>
+          <div class="item ">
+            <ion-row>
+              <ion-col size='1.5' class="order">
+                2
+              </ion-col>
+              <ion-col size='10.5' class="className">
+                商品名称
+                <p>7天访客2人</p>
+              </ion-col>
+            </ion-row>
+          </div>
+          <div class="item ">
+            <ion-row>
+              <ion-col size='1.5' class="order">
+                3
+              </ion-col>
+              <ion-col size='10.5' class="className">
+                商品名称
+                <p>7天访客2人</p>
+              </ion-col>
+            </ion-row>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label size='2'>
+        商品发布
+      </ng-template>
+      <div echarts [options]="options3" id="main" tyle="width: 100%;height:200px;padding-top:50px;"></div>
+
+      <div>
+        <div class="card classes">
+          <ion-row>
+            <ion-col text-center>
+              <p class="num">0</p>
+              <p><span [ngStyle]="{color:'rgba(218,77,129,1)'}">·</span> 商品发布数量</p>
+            </ion-col>
+            <ion-col text-center>
+              <p class="num">0</p>
+              <p><span [ngStyle]="{color:'rgba(29,32,136,1)'}">·</span> 发布商品浏览人数</p>
+            </ion-col>
+          </ion-row>
+        </div>
+        <ion-row>
+          <ion-col class="sevenDay">
+            7天页面访问排行榜
+          </ion-col>
+          <ion-col class="yesterday" text-right>
+            排行榜数据截止到昨日
+          </ion-col>
+        </ion-row>
+        <div class="list">
+          <div class="item ">
+            <ion-row>
+              <ion-col size='1.5' class="order">
+                1
+              </ion-col>
+              <ion-col size='10.5' class="className">
+                商品发布
+                <p>7天访客2人</p>
+              </ion-col>
+            </ion-row>
+          </div>
+          <div class="item ">
+            <ion-row>
+              <ion-col size='1.5' class="order">
+                2
+              </ion-col>
+              <ion-col size='10.5' class="className">
+                商品发布
+                <p>7天访客2人</p>
+              </ion-col>
+            </ion-row>
+          </div>
+          <div class="item ">
+            <ion-row>
+              <ion-col size='1.5' class="order">
+                3
+              </ion-col>
+              <ion-col size='10.5' class="className">
+                商品发布
+                <p>7天访客2人</p>
+              </ion-col>
+            </ion-row>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label size='2'>
+        营收统计
+      </ng-template>
+
+      <div echarts [options]="options5" id="main" tyle="width: 100%;height:200px;padding-top:50px;"></div>
+
+      <div class="card classes">
+        <ion-row>
+          <ion-col text-center>
+            <p class="num">0</p>
+            <p><span [ngStyle]="{color:'rgba(218,77,129,1)'}">·</span> 总销售额</p>
+          </ion-col>
+          <ion-col text-center>
+            <p class="num">0</p>
+            <p><span [ngStyle]="{color:'rgba(29,32,136,1)'}">·</span> 订单数</p>
+          </ion-col>
+          <ion-col text-center>
+            <p class="num">0</p>
+            <p><span [ngStyle]="{color:'rgba(254,156,61,1)'}">·</span> 商品数</p>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div class="list">
+        <a class="item item-icon-right" (click)='cashmoney()'>
+          收支明细
+          <span class="badge"><img src="../../../assets/商品管理/返回.png" alt="" [ngStyle]="{marginTop:'2px'}"></span>
+        </a>
+      </div>
+
+    </mat-tab>
+  </mat-tab-group>
+</ion-content>

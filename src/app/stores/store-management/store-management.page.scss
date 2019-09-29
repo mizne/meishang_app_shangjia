@@ -1,0 +1,66 @@
+
+.header{
+    background: #F4367C;
+    color: white;
+    font-size: 14px;
+  }
+  .storeName{
+      font-size: 16px;
+  }
+  .storeLogo{
+    //  background: #F4367C;
+      font-size: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: inline-block;
+      text-align: center;
+      line-height: 50px;
+      color: white;
+      margin-right: 9px;
+
+  }
+.lg{
+    width: auto;
+    height: auto;
+  
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+  .logo{
+      padding: 3px 16px;
+
+  }
+  .sto{
+      line-height: 40px;
+      font-size: 16px;
+  }
+  .msg{
+      color: rgba(153,153,153,1);
+      width: 10rem;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+  }
+  .addlg{
+    color: rgba(153,153,153,1);
+    line-height: 44px;
+    font-size: 16px;
+  }
+.btm_btn{
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 2rem;
+}
+.btm_btn button{
+  margin: .5rem .5rem; 
+}
+.introduce_style {
+  position: absolute;
+  right: 0.3rem;
+  top: 50%;
+  transform: translateY(-50%);
+}

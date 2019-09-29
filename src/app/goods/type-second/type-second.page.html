@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}"
+          (click)='back()'> 添加分类
+      </ion-col>
+      <ion-col text-right (click)='done()'>
+        完成
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content>
+  <mat-list>
+    <mat-list-item>
+      <ion-row>
+        <ion-col class="store" [ngStyle]="{lineHeight: '40px'}">
+          分类名称
+        </ion-col>
+        <ion-col>
+          <ion-input placeholder='添加分类名称' [(ngModel)]="secondname"></ion-input>
+        </ion-col>
+      </ion-row>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <div class="logo">
+      <ion-row>
+        <ion-col class="sto">
+          分类logo
+        </ion-col>
+        <ion-col text-right>
+          <div class="storeLogo" (click)='presentActionSheet()' *ngIf="secondImg;else upoo">
+            <img [src]='secondImg' alt="" class="lg">
+          </div>
+          <ng-template #upoo>
+            <div class="addlg" (click)='presentActionSheet()'>添加logo</div>
+          </ng-template>
+        </ion-col>
+      </ion-row>
+    </div>
+  </mat-list>
+</ion-content>

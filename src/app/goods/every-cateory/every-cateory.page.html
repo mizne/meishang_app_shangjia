@@ -1,0 +1,122 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}"
+          (click)='back()'> 商品分类
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="isSearch">
+    <!-- <div class="title-goods">
+      搜索结果
+    </div> -->
+    <div class="bofy-none" *ngIf=(isSearchNull)>
+      <div class="img-none">
+        <img src="assets/img/none1.jpg" alt="">
+      </div>
+      <div class="tips-none">暂未搜索到相关商品</div>
+    </div>
+
+    <div class="botomo-content" *ngIf=(!isSearchNull)>
+      <div class="body-pics" *ngFor="let item of goodsSearchList;let i=index" (click)="goToDetails(item.RecordId)">
+        <div class="img-con">
+          <!-- <img src="assets/img/red.png" alt=""> -->
+          <img [src]="item.PicList[0].PicPath || 'assets/img/red.png'" alt="">
+        </div>
+        <div class="desc-name">{{item.productTitle}}</div>
+        <!-- <div class="desc">{{item.ProductDescription}}</div> -->
+        <div class="desc-post">包邮</div>
+        <div class="con-botom">
+
+          <div class="body-left">
+            <div class="body-logo">
+              ￥{{item.ProductPrice}}
+            </div>
+
+
+          </div>
+          <div class="body-right">
+            <img src="assets/img/store.png" alt="">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- 分类下商品 -->
+  <!-- 暂无内容 -->
+  <!-- <div class="title-goods" *ngIf=(!isGoodsNull)>
+    分类下全部商品
+  </div> -->
+  <div class="bofy-none" *ngIf=(isGoodsNull)>
+    <div class="img-none">
+      <img src="assets/img/none1.jpg" alt="">
+    </div>
+    <div class="tips-none">暂无商品</div>
+  </div>
+
+  <div class="botomo-content" *ngIf=(!isGoodsNull)>
+    <!-- <div class="body-pics" *ngFor="let item of goodsList;let i=index" (click)="goToDetails(item.RecordId)">
+      <div class="img-con">
+      
+        <img [src]="item.PicList[0].PicPath || 'assets/img/red.png'" alt="">
+      </div>
+      <div class="desc-name">{{item.productTitle}}</div>
+      <div class="desc">{{item.ProductDescription}}</div>
+      <div class="desc-post">包邮</div>
+      <div class="con-botom">
+  
+        <div class="body-left">
+          <div class="body-logo">
+            ￥{{item.Price}}
+          </div>
+  
+        </div>
+        <div class="body-right">
+          <img src="assets/img/store.png" alt="">
+          
+        </div>
+      </div>
+    </div> -->
+
+    <div class="masonry">
+      <div class="item" *ngFor="let k of goodsList;let i=index">
+        <div class="item_content content-lar">
+          <ion-card class="price">
+            <div (click)='goToDetails(k.RecordId)' class="goodsPic">
+              <img [src]='k?.PicList[0].PicPath ? k?.PicList[0].PicPath:imgSrc' class="storeimg" />
+            </div>
+            <div (click)='goToDetails(k.RecordId)'>
+              <!-- <ion-card-title [ngStyle]="{ fontSize: '15px',margin:'3px 0' }"> {{k?.productTitle ? k?.productTitle:'暂无标题'}}</ion-card-title>
+                  <ion-card-subtitle>{{k?.ProductDescription ? k?.ProductDescription:'暂无描述'}}</ion-card-subtitle> -->
+              <div [ngStyle]="{ fontSize: '15px',margin:'3px 0',fontWeight:'bold' }">
+                {{k?.productTitle ? k?.productTitle:'暂无标题'}}</div>
+              <!-- <div [ngStyle]="{margin: '5px 0'}">
+                {{k?.ProductDescription ? k?.ProductDescription:'暂无描述'}}
+              </div> -->
+            </div>
+            <div>
+              <span [ngStyle]="{marginRight: '48%'}"> ￥{{k?.ProductPrice ? k?.ProductPrice:0}} </span>
+              <ion-icon name="eye" size="5"></ion-icon><span>0{{goodsView}}</span>
+            </div>
+            <!-- <ion-row >
+                  <ion-col text-left color="pink" size="small">
+                    ￥{{k?.Price ? k?.Price:0}}
+                  </ion-col>
+                  <ion-col text-right>
+                    <ion-icon name="eye" size="6"></ion-icon>0{{goodsView}}
+                  </ion-col>
+                </ion-row> -->
+          </ion-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

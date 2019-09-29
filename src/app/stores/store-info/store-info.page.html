@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar color="pink">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="store" (click)='back()'>
+          <div class="storeName"><img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}" > 账户信息</div>
+        </ion-col>
+
+      
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+ <mat-list>
+  <!-- <mat-list-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="store">
+           银行卡
+        </ion-col>
+
+        <ion-col (click)='storeCard()'>
+          <div class="msg" text-right>未设置 <img src="../../../assets/商品管理/返回.png" alt=""></div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </mat-list-item>
+  <mat-divider></mat-divider> -->
+  <mat-list-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="store">
+           支付宝
+        </ion-col>
+
+        <ion-col (click)='storePay()'>
+          <div class="msg" text-right><span>设置</span> <img src="../../../assets/商品管理/返回.png" alt=""></div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="store">
+           微信账号
+        </ion-col>
+
+        <ion-col (click)='storeWx()'>
+          <div class="msg" text-right><span>设置</span>  <img src="../../../assets/商品管理/返回.png" alt=""></div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </mat-list-item>
+</mat-list>
+
+</ion-content>

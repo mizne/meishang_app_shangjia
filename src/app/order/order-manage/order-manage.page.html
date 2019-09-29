@@ -1,0 +1,193 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col size='4.8' (click)='back()'>
+        <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}">
+      </ion-col>
+      <ion-col size='7.2'>
+        订单管理
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content class="big">
+  <div class="search">
+    <ion-searchbar placeholder="输入订单编号搜索" (click)='toSearch()'></ion-searchbar>
+  </div>
+  <div class="buttons-tab">
+    <a id="allOrder" class="tab-link button1" [ngClass]="{'active': activeStyle === '0'}"
+      (click)="getOrderList()">全部</a>
+    <a class="tab-link button1" [ngClass]="{'active': activeStyle === '101'}" (click)="getOrderStateList('101')">待付款</a>
+    <a class="tab-link button1" [ngClass]="{'active': activeStyle === '201'}" (click)="getOrderStateList('201')">待发货</a>
+    <a class="tab-link button1" [ngClass]="{'active': activeStyle === '300'}" (click)="getOrderStateBoolList()">售后</a>
+    <a class="tab-link button1" [ngClass]="{'active': activeStyle === '401'}" (click)="getOrderStateList('401')">已完成</a>
+    <a class="tab-link button1" [ngClass]="{'active': activeStyle === '402'}" (click)="getOrderStateList('402')">已关闭</a>
+  </div>
+  <div class="content-block">
+    <div class="tabs1">
+      <div id="tab1" class="tab">
+        <div *ngFor="let item of OrderList;let i = index">
+          <ion-card class="order-card" style="margin: 16px 10px;">
+            <ion-row [ngStyle]="{padding:'5px 0'}">
+              <ion-col size='9.2'>
+                订单号：{{item.RecordId || '无订单号'}}
+              </ion-col>
+              <ion-col text-right size='2.8'>
+                <span [ngStyle]="{color: '#F3367C'}" *ngIf="item.state === '101'"> 待付款</span>
+                <span [ngStyle]="{color: '#F3367C'}" *ngIf="item.state === '201'"> 待发货</span>
+                <!-- 售后 -->
+                <!-- <span [ngStyle]="{color: '#F3367C'}" *ngIf="item.state === '202'"> 已发货</span>
+                <span [ngStyle]="{color: '#F3367C'}" *ngIf="item.state === '301'"> 同意退款</span>
+                <span [ngStyle]="{color: '#F3367C'}" *ngIf="item.state === '302'"> 拒绝退款</span>
+                <span [ngStyle]="{color: '#F3367C'}" *ngIf="item.state === '303'"> 退款中</span>
+                <span [ngStyle]="{color: '#F3367C'}" *ngIf="item.state === '311'"> 同意退款退货</span>
+                <span [ngStyle]="{color: '#F3367C'}" *ngIf="item.state === '312'"> 拒绝退款退货</span>
+                <span [ngStyle]="{color: '#F3367C'}" *ngIf="item.state === '313'"> 退款退货中</span>
+                <span [ngStyle]="{color: '#F3367C'}" *ngIf="item.state === '321'"> 同意换货</span>
+                <span [ngStyle]="{color: '#F3367C'}" *ngIf="item.state === '322'"> 拒绝换货</span>
+                <span [ngStyle]="{color: '#F3367C'}" *ngIf="item.state === '323'"> 换货中</span> -->
+                <span [ngStyle]="{color: '#F3367C'}" *ngIf="item.IsPostSale === true">
+                  {{ changeState(item.state) }}</span>
+                <span [ngStyle]="{color: '#F3367C'}" *ngIf="item.state === '401'"> 已完成</span>
+                <span [ngStyle]="{color: '#F3367C'}" *ngIf="item.state === '402'"> 已关闭</span>
+
+              </ion-col>
+            </ion-row>
+            <mat-divider></mat-divider>
+            <ion-row (click)="toDetail(item.RecordId)">
+              <ion-col>
+                {{item.OrderName}}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size='4' class="kd">
+                <img src="../../../assets/订单管理/快递.png" alt="">
+                <span>快递费：包邮</span>
+              </ion-col>
+              <ion-col size="8" class="pay">
+                <span>共{{item.OrderLineNumber}}件商品</span>&nbsp;
+                <span> 合计:￥{{item.Sum}}</span>
+              </ion-col>
+            </ion-row>
+            <mat-divider></mat-divider>
+            <ion-row>
+              <ion-col class="card_btn" text-right>
+                <!-- 待付款 -->
+                <button mat-raised-button class="card_btn2" color="accent" (click)="presentAlertPrompt(item.RecordId)"
+                  *ngIf="item.state === '101'">修改价格
+                </button>
+                <!-- 待发货 -->
+                <button mat-raised-button class="card_btn2" color="accent" (click)="send(item.RecordId)"
+                  *ngIf="item.state === '201'">我要发货
+                </button>
+                <button mat-raised-button class="card_btn1" (click)="logistic(item.RecordId)"
+                  *ngIf="item.state === '202' || item.state === '401' || item.state === '402' ">查看物流
+                </button>
+                <!-- 售后 -->
+                <button mat-raised-button class="card_btn1 card_btn3" (click)="selldetail(item.RecordId)"
+                  *ngIf="item.IsPostSale === true && item.state !== '202'">售后详情
+                </button>
+                <!-- 退款 -->
+                <button mat-raised-button class="card_btn1" (click)="refuseMoney(item.RecordId, item.state)" *ngIf="item.state === '303' || item.state === '313' || item.state === '323'">拒绝
+                </button>
+                <button mat-raised-button class="card_btn2" (click)="acceptOrder(item.RecordId, item.state)" color="accent" *ngIf="item.state === '303' || item.state === '313' || item.state === '323'">同意
+                </button>
+                <!-- 已完成 -->
+                <button mat-raised-button class="card_btn2" (click)="view(item.RecordId)" color="accent" *ngIf="item.state === '401'">查看评价
+                </button>
+                <!-- 已关闭 -->
+                <button mat-raised-button class="card_btn2" (click)="deleteOrder(item.RecordId)" color="accent" *ngIf="item.state === '402'">删除
+                </button>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+          <div class="sendDetail" *ngIf="show" [ngStyle]="{textAlign: 'left'}">
+            <ion-row>
+              <ion-col size='3' class="inp">
+                寄件人:
+              </ion-col>
+              <ion-col size='9'>
+                <div class="kk">
+                  <ion-input value='3132'></ion-input>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size='3' class="inp">
+                寄件人电话:
+              </ion-col>
+              <ion-col size='9'>
+                <div class="kk">
+                  <ion-input value='365116'></ion-input>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size='3' class="inp">
+                寄件人地址:
+              </ion-col>
+              <ion-col size='9'>
+                <div class="kk">
+                  <ion-input value='56165'></ion-input>
+                </div>
+              </ion-col>
+            </ion-row>
+            <mat-divider></mat-divider>
+            <ion-row class="inp">
+              <ion-col size='3'>
+                收件人人:
+              </ion-col>
+              <ion-col size='9'>
+                什么
+              </ion-col>
+            </ion-row>
+            <ion-row class="inp">
+              <ion-col size='3'>
+                收人电话:
+              </ion-col>
+              <ion-col size='9'>
+                2165635496
+              </ion-col>
+            </ion-row>
+            <ion-row class="inp">
+              <ion-col size='3'>
+                收件人地址:
+              </ion-col>
+              <ion-col size='9'>
+                南京市
+              </ion-col>
+            </ion-row>
+            <mat-divider></mat-divider>
+            <ion-row>
+              <ion-col size='3' class="com">
+                快递公司:
+              </ion-col>
+              <ion-col size='9'>
+                <ion-select [(ngModel)]="selecText" cancelText="取消" okText="确定!">
+                  <ion-select-option [value]="item.RecordId" *ngFor="let item of express;let i=index"
+                    placeholder="请选择快递">{{item.Name}}</ion-select-option>
+                </ion-select>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size='3' class="inp">
+                快递单号:
+              </ion-col>
+              <ion-col size='9'>
+                <div class="kk">
+                  <ion-input value='' placeholder="请输入快递单号"></ion-input>
+                </div>
+              </ion-col>
+            </ion-row>
+            <div text-center class="send_btn">
+              <!-- <ion-button color="success" (click)='dis()'>确定</ion-button> -->
+              <button mat-raised-button color="accent" (click)='dis()'>确定</button>
+              <button mat-raised-button (click)='sendCancel()'>取消</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

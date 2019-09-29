@@ -1,0 +1,146 @@
+.header{
+    background: rgba(243,54,124,1);
+    color: white;
+    font-size: 16px;
+}
+.release>.list{
+  font-weight: bold;
+    font-family: 'PingFang SC'
+
+}
+.release>input{
+    background: white;
+}
+.pic{
+   position: absolute;
+   top: 17px;
+   left: 90%;
+   z-index: 1000;
+}
+.uls{
+    position: relative;
+}
+.course{
+    line-height: 40px;
+    font-size: 14px;
+    padding-left: 1rem;
+}
+.uploadcover{
+    width:219px;
+    height: 119px;
+    line-height: 119px;
+    text-align: center;
+    color: #B4B4B4;
+    border: 0.1px dotted rgb(230, 227, 227);
+}
+.cover{
+    display: inline-block;
+    width: auto;  
+    height: auto;  
+    max-width: 100%;  
+    max-height: 100%;     
+
+}
+.put{
+   position: absolute;
+   top: 160px;
+   left: 0;
+   opacity: 0;
+
+}
+.file1{
+    position: relative;
+    display: inline-block;
+    // background: #D0EEFF;
+    border: 1px solid #F3367C;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #F3367C;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+    input {
+        position: absolute;
+        font-size: 100px;
+        right: 0;
+        top: 0;
+        opacity: 0;
+    }
+}
+.vid{
+    position: relative;
+}
+.progress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+//    margin-top: 200px;
+    z-index: 10000;
+    flex-direction: column;
+    .body-progress {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:100%;
+        .progress2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width:70%;
+        }
+        .btn-cancel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 26%;
+            padding: 5px;
+            color:#F3367C;
+            font-size: 12px;
+            // background-color: #F3367C;
+        }
+    }
+    .progress1 {
+        margin-top:10px;
+        display: flex;
+        text-align: right;
+        width:90%;
+        font-size: 14px;
+        color: #F3367C;
+    
+    }
+}
+.course_state {
+    margin: 0.5rem;
+    background: #e8e8e8;
+    height: 1.3rem;
+    overflow: hidden;
+    margin-bottom: 0.1rem;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+    .course_title {
+        color: red;
+        text-align: center;
+    }
+    .course_reason {
+        color: red;
+    }
+}
+.course_state_full {
+    @extend .course_state;
+    height: 100%;
+}
+.check_more {
+    text-align: center;
+    background: #e8e8e8;
+    margin: 0.5rem;
+    border-bottom-left-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+    margin-top: 0;
+}
+.check_icon {
+    position: relative;
+    top: 0.1rem;
+    left: 0.3rem;
+}

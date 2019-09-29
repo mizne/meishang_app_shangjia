@@ -1,0 +1,40 @@
+<ion-header>
+    
+      <ion-grid class="tool">
+        <ion-row>
+          <ion-col (click)='back()' class="lv">
+            <img src="../../assets/首页/back.png" alt=""  [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}" (click)='back()'> <span (click)='back()'>我的教程</span>
+          </ion-col>
+         
+        </ion-row>
+      </ion-grid>
+    
+  </ion-header>
+  <ion-content>
+    <div class="goods"  *ngFor="let k of allList;let i=index">
+     
+        <div [ngStyle]="{display: 'flex',margin:'5px 4px'}">
+            <div class="goodspic">
+                <!-- <img [src]='k?.PicList[0].PicPath ?   k?.PicList[0].PicPath : imgSrc' alt="" [ngStyle]="{maxHeight:'100%',width:'auto',maxWidth:'100%'}"> -->
+                <img src="../../../assets/我的教程/lesson.png" alt="" [ngStyle]="{maxHeight:'100%',width:'auto',maxWidth:'100%'}">
+  
+            </div>
+            <div class="less-content">
+                <div  class="descrip">
+                    妆容总是脏脏的怎么办？你和美妆博主只差一套化妆品刷！！！
+                </div>
+               
+              <div class="less-icon">
+                   <img src="../../../assets/我的教程/like.png" alt=""><span class="like">2132</span>
+              
+                      <img src="../../../assets/我的教程/del.png" alt="">
+               
+              </div>
+             </div>
+        </div>
+        
+    </div>
+  </ion-content>
+  <ion-footer text-center>
+    <button mat-raised-button  color='accent' (click)='release()'>教程发布</button>
+  </ion-footer>

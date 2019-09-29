@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-grid>
+    <ion-row>
+        <!-- (click)='back()' -->
+      <ion-col size='4.8'>
+        <!-- <img src="../../assets/首页/back.png" alt="" [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}"> -->
+      </ion-col>
+      <ion-col size='7.2'>
+        店铺审核
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content>
+  <div class="examine_body">
+    <div class="examine_top">
+      <img src="../../assets/img/wait.jpg" alt="">
+    </div>
+    <div class="content">
+      资料正在审核中......
+    </div>
+    <div class="content">
+      请耐心等待。
+    </div>
+    <div class="examine_bottom">
+      <span class="exmine_btn" (click)="refreshStatus()">刷新</span>
+    </div>
+  </div>
+</ion-content>

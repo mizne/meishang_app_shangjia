@@ -1,0 +1,122 @@
+.header{
+    background: rgba(243,54,124,1);
+    color: white;
+    font-size: 16px;
+}
+.order{
+    height: 190px;
+    background: rgba(243,54,124,1);
+    padding: 25px 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.order-head{
+    margin: 0 auto;
+    
+    background: url(../../../assets/订单管理/bg.png) no-repeat;
+    background-size: 100% 100%;
+    width: 300px;
+    height: 140px;
+    padding-top: 40px;
+}
+.row1 img{
+    
+width: 16px;
+margin: 0px 8px;
+}
+.row1{
+    padding: 10px 0;
+    font-weight: bold;
+    font-size: 12px;
+
+}
+.row2{
+    color: rgba(102,102,102,1);
+    padding: 10px 0;
+    font-size: 12px;
+    padding-left: 30px;
+}
+.edit{
+    color: rgba(243,54,124,1);
+}
+.pic{
+    width:12px;
+    margin:0 5px 0 14px;
+}
+.count{
+    padding:0 10px;
+    font-size: 12px;
+    font-weight: bold;
+
+}
+.line{
+    height: 113%;
+    margin: -80% 0 -10% 0;
+}
+.hh{
+    height: 20px;
+}
+.goods-count{
+    margin-top: 50px;
+}
+.send-goods{
+    font-size: 12px;
+}
+.goods-bg{
+    background: rgba(241,241,241,1);
+}
+.money{
+    padding: 12px;
+}
+.money span{
+    color: rgba(243,54,124,1);
+}
+.contact{
+    color: rgba(153,153,153,1);
+}
+.copy{
+    border: 1px solid #999999;
+    border-radius: 3px;
+    width: 35px;
+    display: inline-block;
+}
+
+.mat-stroked-button {
+    padding: 0;
+    min-width: 0;
+    width: 80px;
+    height: 40px;
+    flex-shrink: 0;
+    line-height: 40px;
+    border-radius: 0%;
+    z-index: 1000;
+    margin: 0 10px;
+}
+.ion-content{
+    position: relative;
+}
+.sendDetail{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #ffffff;
+}
+
+.order_img {
+    position: relative;
+    top: -5.5px;
+}
+
+.order_time {
+    margin-left: -3.5rem;
+}
+
+.order_number {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    width: 205px;
+    display: inline-block;
+    margin-left: 1.5rem;
+}

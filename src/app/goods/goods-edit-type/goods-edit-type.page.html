@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-grid >
+    <ion-row>
+      <ion-col (click)='go()'>
+        <img src="../../assets/首页/back.png" alt=""  [ngStyle]="{width:'12px',verticalAlign:'bottom',marginRight:'8px'}" >修改分类
+      </ion-col>
+      <ion-col text-right  (click)='well()'>
+       完成
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-header>
+
+<ion-content>
+  <button mat-button color="accent">+添加分类</button>
+  
+    
+
+  <div class="list">
+      <label class="item item-radio" *ngFor="let k of typeName;let i=index">
+        <div (click)='choice(i)'>
+            <input type="radio" name="group" value="" >
+            <div class="radio-content">
+            <div class="item-content">
+             {{k.Name}}
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
+           </div>
+        </div>
+      </label>
+  </div>
+  
+  
+    
+</ion-content>
